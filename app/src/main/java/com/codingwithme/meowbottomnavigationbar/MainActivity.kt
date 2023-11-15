@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 //        main = findViewById(R.id.main)
 
 
-        getWindow().setNavigationBarColor(Color.parseColor("#D9F1F4"))
+//        getWindow().setNavigationBarColor(Color.parseColor("#D9F1F4"))
         getWindow().setStatusBarColor(Color.parseColor("#D9F1F4"))
         bottomNavigation.setBackgroundColor(Color.parseColor("#D9F1F4"))
 
@@ -29,19 +29,19 @@ class MainActivity : AppCompatActivity() {
             when(it.id){
                 0 -> {
                     replaceFragment(DrugdrugFragment.newInstance())
-                    getWindow().setNavigationBarColor(Color.parseColor("#D9F1F4"))
+//                    getWindow().setNavigationBarColor(Color.parseColor("#D9F1F4"))
                     getWindow().setStatusBarColor(Color.parseColor("#D9F1F4"))
                     bottomNavigation.setBackgroundColor(Color.parseColor("#D9F1F4"))
                 }
                 1 -> {
                     replaceFragment(CalendarFragment.newInstance())
-                    getWindow().setNavigationBarColor(Color.parseColor("#E2EFE3"))
+//                    getWindow().setNavigationBarColor(Color.parseColor("#E2EFE3"))
                     getWindow().setStatusBarColor(Color.parseColor("#E2EFE3"))
                     bottomNavigation.setBackgroundColor(Color.parseColor("#E2EFE3"))
                 }
                 2 -> {
                     replaceFragment(ProfileFragment.newInstance())
-                    getWindow().setNavigationBarColor(Color.parseColor("#F1E9F3"))
+//                    getWindow().setNavigationBarColor(Color.parseColor("#F1E9F3"))
                     getWindow().setStatusBarColor(Color.parseColor("#F1E9F3"))
                     bottomNavigation.setBackgroundColor(Color.parseColor("#F1E9F3"))
                 }

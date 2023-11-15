@@ -49,13 +49,25 @@
                 android:text="@string/msg_add_drug_to_che" />
 
 
-            <SearchView
-                android:id="@+id/lineLineSix"
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="18.96dp"
-                android:layout_marginTop="9.48dp"
-                android:hint="Tylenol" />
+                android:orientation="vertical">
+                <SearchView
+                    android:id="@+id/lineLineSix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18.96dp"
+                    android:layout_marginTop="9.48dp"
+                    android:queryHint="Tylenol" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
 
 
             <TextView

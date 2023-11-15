@@ -1,21 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="start"
+    style="@style/groupStylewhite_A700">
+
+    <FrameLayout
+        android:id="@+id/frameStackcar"
+        android:layout_height="@dimen/_87pxv"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_20pxh">
+
+        <View
+            android:id="@+id/__link_drug_interaction_empty__pillpal_logo"
+            android:layout_width="56dp"
+            android:layout_height="30dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="@dimen/_19pxh"
+            android:background="@drawable/pillpal_logo" />
+
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtHiIbs"
+            android:layout_gravity="bottom|start"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_26pxv"
+            android:layout_marginEnd="@dimen/_19pxh"
+            android:layout_marginStart="@dimen/_19pxh"
+            android:layout_marginTop="@dimen/_26pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            style="@style/txtPoppinsregular13" android:text="@string/lbl_hi_ibs"/>
+
+        <TextView
+            android:id="@+id/txtLanguage"
+            style="@style/txtPoppinssemibold14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:ellipsize="end"
+            android:gravity="top|start"
+            android:singleLine="true"
+            android:text="@string/msg_don_t_forget_to" />
+    </FrameLayout>
 
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_calendar"/>
     <TextView
+        android:id="@+id/txtProbiotics"
+        style="@style/txtPoppinsbold19"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:text="Calendar Fragment" />
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="@dimen/_10pxv"
+        android:ellipsize="end"
+        android:gravity="top|start"
+        android:singleLine="true"
+        android:text="@string/lbl_september_2023" />
 
+    <FrameLayout
+        android:id="@+id/frameStackcarOne"
+        android:layout_width="@dimen/_340pxh"
+        android:layout_height="82dp"
+        android:layout_marginStart="@dimen/_10pxh"
+        android:layout_marginEnd="@dimen/_10pxh">
+
+
+        <LinearLayout
+            android:id="@+id/linearRoweighteen"
+            style="@style/groupStylecornerRadius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="@dimen/_9pxh"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/linearColumneighteen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_marginBottom="@dimen/_7pxv"
+                android:layout_weight="0.08"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtEighteen"
+                    style="@style/txtRobotoromansemibold20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_18" />
+
+                <TextView
+                    android:id="@+id/txtMon"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:layout_marginEnd="@dimen/_1pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_mon" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumnnineteen"
+                style="@style/groupStylebluegray_900cornerRadius"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.08"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtNineteen"
+                    style="@style/txtRobotoromansemibold20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_11pxh"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_marginEnd="@dimen/_11pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_19" />
+
+                <TextView
+                    android:id="@+id/txtTue"
+                    style="@style/txtIntersemibold10_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_11pxh"
+
+                    android:layout_marginEnd="@dimen/_11pxh"
+                    android:layout_marginBottom="@dimen/_7pxv"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/lbl_tue" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumntwenty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_marginBottom="@dimen/_7pxv"
+                android:layout_weight="0.08"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTwenty"
+                    style="@style/txtRobotoromansemibold20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_20" />
+
+                <TextView
+                    android:id="@+id/txtWed"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:layout_marginEnd="@dimen/_1pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_wed" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumntwentyone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_marginBottom="@dimen/_7pxv"
+                android:layout_weight="0.08"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTwentyOne"
+                    style="@style/txtRobotoromansemibold20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_21" />
+
+                <TextView
+                    android:id="@+id/txtThu"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:layout_marginEnd="@dimen/_1pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_thu" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumntwentytwo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_marginBottom="@dimen/_7pxv"
+                android:layout_weight="0.08"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTwentyTwo"
+                    style="@style/txtRobotoromansemibold20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_22" />
+
+                <TextView
+                    android:id="@+id/txtFri"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:layout_marginEnd="@dimen/_1pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_fri" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumntwentythree"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_marginBottom="@dimen/_7pxv"
+                android:layout_weight="0.08"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTwentyThree"
+                    style="@style/txtRobotoromansemibold20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_23" />
+
+                <TextView
+                    android:id="@+id/txtSat"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:layout_marginEnd="@dimen/_1pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_sat" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumntwentyfour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_marginBottom="@dimen/_7pxv"
+                android:layout_weight="0.08"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTwentyFour"
+                    style="@style/txtRobotoromansemibold20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_24" />
+
+                <TextView
+                    android:id="@+id/txtSun"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:layout_marginEnd="@dimen/_1pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/lbl_sun" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/linearRowtotake"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_21pxv"
+        android:layout_width="match_parent"
+        style="@style/groupStylegreen_1">
+
+        <LinearLayout
+            android:id="@+id/linearColumntotake"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_20pxh"
+            android:layout_marginTop="@dimen/_30pxh"
+            android:layout_marginEnd="@dimen/_20pxh"
+            android:layout_marginBottom="@dimen/_130pxv"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txtToTake"
+                    style="@style/txtPoppinsbold24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:ellipsize="end"
+                    android:text="@string/lbl_to_take" />
+                <ImageView
+                    android:id="@+id/imagePlus"
+                    android:layout_width="@dimen/_31pxh"
+                    android:layout_height="@dimen/_31pxh"
+                    android:layout_marginLeft="210dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_plus_white_a700" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtNothingHere"
+                style="@style/txtPoppinsbold16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_69pxh"
+                android:layout_marginTop="@dimen/_32pxv"
+                android:layout_marginEnd="@dimen/_69pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/lbl_nothing_here" />
+            <ImageView
+                android:id="@+id/imageBbcapcule"
+                android:layout_width="@dimen/_29pxh"
+                android:layout_height="@dimen/_80pxh"
+                android:layout_gravity="bottom|center"
+                android:layout_marginStart="@dimen/_106pxh"
+                android:layout_marginTop="@dimen/_150pxv"
+                android:layout_marginEnd="@dimen/_106pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_bbcapcule_white_a700" />
+        </LinearLayout>
+
+    </FrameLayout>
 </LinearLayout>
