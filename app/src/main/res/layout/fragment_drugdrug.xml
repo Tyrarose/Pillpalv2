@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout android:id="@+id/frameDruginteractio"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/Bluelight">
+
+        <LinearLayout
+            android:id="@+id/linearColumnlanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start|center"
+            android:layout_marginStart="28.89dp"
+            android:layout_marginTop="10.43dp"
+            android:layout_marginEnd="22.89dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar android:gravity="start"
+                android:id="@+id/toolbarToolbar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <FrameLayout android:id="@+id/__link_drug_interaction_empty__pillpal_logo"
+                    android:layout_height="30dp"
+                    android:layout_width="56dp"
+                    android:background="@drawable/pillpal_logo">
+                </FrameLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:textSize="12dp"
+                android:fontFamily="@font/robotoromanbold"
+                android:textColor="@color/Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="22.89dp"
+                android:layout_marginTop="36.03dp"
+                android:layout_marginEnd="22.89dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="3.43dp"
+                android:singleLine="true"
+                android:text="@string/msg_add_drug_to_che" />
+
+
+            <SearchView
+                android:id="@+id/lineLineSix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="18.96dp"
+                android:layout_marginTop="9.48dp"
+                android:hint="Tylenol" />
+
+
+            <TextView
+                android:id="@+id/txtAddtwodrugs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="21.74dp"
+                android:layout_marginTop="13.27dp"
+                android:layout_marginEnd="21.74dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter"
+                android:lineSpacingExtra="3.43dp"
+                android:singleLine="true"
+                android:textColor="@color/Black"
+                android:textSize="12sp"
+                android:text="@string/lbl_add_two_drugs" />
+
+            <Button
+                android:id="@+id/btnCheckInteractions"
+                style="@style/btnSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16.12dp"
+                android:layout_marginRight="20dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lineSpacingExtra="6.87dp"
+                android:paddingStart="34.33dp"
+                android:paddingTop="11.38dp"
+                android:paddingEnd="34.33dp"
+                android:paddingBottom="11.38dp"
+                android:singleLine="true"
+                android:text="@string/msg_check_interacti"
+                android:textAllCaps="false"/>
+
+            <LinearLayout
+                android:id="@+id/linearRowclear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="9.48dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnClear"
+                    style="@style/btnSolidRounded_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:lineSpacingExtra="6.87dp"
+                    android:paddingStart="34.33dp"
+                    android:paddingTop="11.38dp"
+                    android:paddingEnd="34.33dp"
+                    android:paddingBottom="11.38dp"
+                    android:singleLine="true"
+                    android:text="@string/lbl_clear"
+                    android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btnLoadExample"
+                    style="@style/btnSolidRoundedOutline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1.14dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:lineSpacingExtra="6.87dp"
+                    android:singleLine="true"
+                    android:textAllCaps="false"
+                    android:text="@string/lbl_load_example" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearWarning"
+                style="@style/groupStylecornerRadius_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22.89dp"
+                android:layout_marginTop="25.6dp"
+                android:layout_marginEnd="22.89dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageWarning"
+                    android:layout_width="21.74dp"
+                    android:layout_height="19.46dp"
+                    android:layout_marginStart="12.59dp"
+                    android:layout_marginTop="20.86dp"
+                    android:layout_marginBottom="76.8dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_warning"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_warning" />
+                <TextView
+                    android:id="@+id/txtDescription"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/Black"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9pxh"
+                    android:layout_marginTop="@dimen/_18pxv"
+                    android:layout_marginEnd="@dimen/_16pxh"
+                    android:layout_marginBottom="@dimen/_24pxv"
+                    android:layout_weight="0.92"
+                    android:lineSpacingExtra="@dimen/_3pxh"
+                    android:text="@string/msg_warning_if_no" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageBbcapcule"
+                android:layout_width="@dimen/_29pxh"
+                android:layout_height="@dimen/_80pxh"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_126pxh"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="@dimen/_126pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_bbcapcule_white_a700"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_bbcapcule_white_a700" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

@@ -1,44 +1,52 @@
 package com.codingwithme.meowbottomnavigationbar
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        addFragment(HomeFragment.newInstance())
+        addFragment(DrugdrugFragment.newInstance())
         bottomNavigation.show(0)
         bottomNavigation.add(MeowBottomNavigation.Model(0,R.drawable.ic_home))
-        bottomNavigation.add(MeowBottomNavigation.Model(1,R.drawable.ic_explore))
-        bottomNavigation.add(MeowBottomNavigation.Model(2,R.drawable.ic_chat))
-        bottomNavigation.add(MeowBottomNavigation.Model(3,R.drawable.ic_notification))
-        bottomNavigation.add(MeowBottomNavigation.Model(4,R.drawable.ic_user))
+        bottomNavigation.add(MeowBottomNavigation.Model(1,R.drawable.ic_calendar))
+        bottomNavigation.add(MeowBottomNavigation.Model(2,R.drawable.ic_user))
+//        main = findViewById(R.id.main)
+
+
+        getWindow().setNavigationBarColor(Color.parseColor("#D9F1F4"))
+        getWindow().setStatusBarColor(Color.parseColor("#D9F1F4"))
+        bottomNavigation.setBackgroundColor(Color.parseColor("#D9F1F4"))
+
 
         bottomNavigation.setOnClickMenuListener {
             when(it.id){
                 0 -> {
-                    replaceFragment(HomeFragment.newInstance())
+                    replaceFragment(DrugdrugFragment.newInstance())
+                    getWindow().setNavigationBarColor(Color.parseColor("#D9F1F4"))
+                    getWindow().setStatusBarColor(Color.parseColor("#D9F1F4"))
+                    bottomNavigation.setBackgroundColor(Color.parseColor("#D9F1F4"))
                 }
                 1 -> {
-                    replaceFragment(ExploreFragment.newInstance())
+                    replaceFragment(CalendarFragment.newInstance())
+                    getWindow().setNavigationBarColor(Color.parseColor("#E2EFE3"))
+                    getWindow().setStatusBarColor(Color.parseColor("#E2EFE3"))
+                    bottomNavigation.setBackgroundColor(Color.parseColor("#E2EFE3"))
                 }
                 2 -> {
-                    replaceFragment(ChatFragment.newInstance())
-                }
-                3 -> {
-                    replaceFragment(NotificationFragment.newInstance())
-                }
-                4 -> {
-                    replaceFragment(UserFragment.newInstance())
+                    replaceFragment(ProfileFragment.newInstance())
+                    getWindow().setNavigationBarColor(Color.parseColor("#F1E9F3"))
+                    getWindow().setStatusBarColor(Color.parseColor("#F1E9F3"))
+                    bottomNavigation.setBackgroundColor(Color.parseColor("#F1E9F3"))
                 }
                 else -> {
-                    replaceFragment(HomeFragment.newInstance())
+                    replaceFragment(DrugdrugFragment.newInstance())
                 }
             }
         }

@@ -10,14 +10,12 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:tint="@color/colorPrimaryDark"
-        android:src="@drawable/ic_explore"/>
+        android:src="@drawable/ic_calendar"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
-        android:text="Explore Fragment" />
+        android:text="Calendar Fragment" />
 
 </LinearLayout>

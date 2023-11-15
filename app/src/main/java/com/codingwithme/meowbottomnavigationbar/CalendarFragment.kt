@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class ExploreFragment : Fragment() {
+class CalendarFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -14,13 +14,13 @@ class ExploreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_explore, container, false)
+        return inflater.inflate(R.layout.fragment_calendar, container, false)
     }
 
     companion object {
        @JvmStatic
         fun newInstance() =
-            ExploreFragment().apply {
+            CalendarFragment().apply {
                 arguments = Bundle().apply {}
             }
     }

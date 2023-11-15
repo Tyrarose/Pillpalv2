@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class ChatFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -14,13 +14,13 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        return inflater.inflate(R.layout.fragment_user, container, false)
     }
 
     companion object {
        @JvmStatic
         fun newInstance() =
-            ChatFragment().apply {
+            ProfileFragment().apply {
                 arguments = Bundle().apply {}
             }
     }

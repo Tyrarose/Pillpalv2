@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -18,11 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:mbn_countBackgroundColor="#ff6f00"
-        app:mbn_countTextColor="#000"
-        app:mbn_defaultIconColor="#909090"
-        app:mbn_rippleColor="@color/colorPrimary"
-        app:mbn_selectedIconColor="@color/colorPrimary"
-        app:mbn_shadowColor="#5000" />
+        app:mbn_backgroundBottomColor="@color/White"
+        app:mbn_countBackgroundColor="@color/White"
+        app:mbn_countTextColor="@color/Black"
+        app:mbn_defaultIconColor="@color/Black"
+        app:mbn_rippleColor="@color/Graylight"
+        app:mbn_selectedIconColor="@color/Black"
+        app:mbn_shadowColor="@color/Graylight"/>
+
 
 </RelativeLayout>
