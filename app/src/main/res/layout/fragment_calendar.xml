@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- jishoes -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/android"
     android:layout_width="match_parent"
@@ -11,39 +14,43 @@
         android:id="@+id/frameStackcar"
         android:layout_height="@dimen/_87pxv"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/_20pxh">
+        android:layout_marginTop="@dimen/_30pxh">
 
         <View
             android:id="@+id/__link_drug_interaction_empty__pillpal_logo"
             android:layout_width="56dp"
             android:layout_height="30dp"
             android:layout_gravity="top|start"
-            android:layout_marginStart="@dimen/_19pxh"
+            android:layout_marginStart="22dp"
             android:background="@drawable/pillpal_logo" />
 
-        <TextView android:ellipsize="end"
+        <TextView
+            android:ellipsize="end"
             android:id="@+id/txtHiIbs"
+            style="@style/txtPoppinssemibold14"
             android:layout_gravity="bottom|start"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_26pxv"
+            android:layout_marginBottom="@dimen/_10pxv"
             android:layout_marginEnd="@dimen/_19pxh"
-            android:layout_marginStart="@dimen/_19pxh"
+            android:layout_marginStart="22dp"
             android:layout_marginTop="@dimen/_26pxv"
             android:layout_width="wrap_content"
             android:singleLine="true"
-            style="@style/txtPoppinsregular13" android:text="@string/lbl_hi_ibs"/>
+            android:textColor="@color/Black"
+            android:text="@string/lbl_hi_ibs"/>
 
         <TextView
             android:id="@+id/txtLanguage"
-            style="@style/txtPoppinssemibold14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
             android:layout_marginTop="@dimen/_10pxv"
             android:ellipsize="end"
             android:gravity="top|start"
             android:singleLine="true"
+            android:textColor="@color/Black"
             android:text="@string/msg_don_t_forget_to" />
     </FrameLayout>
 
@@ -55,10 +62,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
         android:layout_marginTop="@dimen/_10pxv"
         android:ellipsize="end"
         android:gravity="top|start"
         android:singleLine="true"
+        android:textColor="@color/Black"
         android:text="@string/lbl_september_2023" />
 
     <FrameLayout
@@ -74,9 +83,8 @@
             style="@style/groupStylecornerRadius"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
-            android:layout_marginStart="@dimen/_9pxh"
-            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10pxh"
             android:layout_marginEnd="@dimen/_10pxh"
             android:orientation="horizontal">
 
@@ -98,6 +106,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_18" />
 
                 <TextView
@@ -110,6 +119,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_mon" />
             </LinearLayout>
 
@@ -168,6 +178,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_20" />
 
                 <TextView
@@ -180,6 +191,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_wed" />
             </LinearLayout>
 
@@ -201,6 +213,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_21" />
 
                 <TextView
@@ -213,6 +226,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_thu" />
             </LinearLayout>
 
@@ -234,6 +248,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_22" />
 
                 <TextView
@@ -246,6 +261,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_fri" />
             </LinearLayout>
 
@@ -267,6 +283,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_23" />
 
                 <TextView
@@ -279,6 +296,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_sat" />
             </LinearLayout>
 
@@ -300,6 +318,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_24" />
 
                 <TextView
@@ -312,6 +331,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_sun" />
             </LinearLayout>
         </LinearLayout>
@@ -336,22 +356,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
                 <TextView
                     android:id="@+id/txtToTake"
                     style="@style/txtPoppinsbold24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
+                    android:layout_gravity="center|start"
                     android:layout_marginEnd="@dimen/_10pxh"
                     android:ellipsize="end"
+                    android:textColor="@color/Black"
                     android:text="@string/lbl_to_take" />
                 <ImageView
                     android:id="@+id/imagePlus"
                     android:layout_width="@dimen/_31pxh"
                     android:layout_height="@dimen/_31pxh"
-                    android:layout_marginLeft="210dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center|left"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_plus_white_a700" />
             </LinearLayout>
@@ -379,6 +401,5 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/img_bbcapcule_white_a700" />
         </LinearLayout>
-
     </FrameLayout>
 </LinearLayout>
