@@ -1,16 +1,19 @@
 package com.codingwithme.meowbottomnavigationbar
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.bottomNavigation
+
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         addFragment(DrugdrugFragment.newInstance())
         bottomNavigation.show(0)
@@ -50,10 +53,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+
     }
 
-    private fun replaceFragment(fragment:Fragment){
-        val fragmentTransition = supportFragmentManager.beginTransaction()
+    private fun replaceFragment(fragment:Fragment){ val fragmentTransition = supportFragmentManager.beginTransaction()
             fragmentTransition.replace(R.id.fragmentContainer,fragment).addToBackStack(Fragment::class.java.simpleName).commit()
     }
 

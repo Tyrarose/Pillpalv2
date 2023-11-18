@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="start"
-    style="@style/groupStylewhite_A700">
+    style="@style/groupStylewhite_A700"
+    tools:context=".CalendarFragment">
 
     <FrameLayout
         android:id="@+id/frameStackcar"
@@ -73,7 +76,6 @@
         android:layout_height="82dp"
         android:layout_marginStart="@dimen/_10pxh"
         android:layout_marginEnd="@dimen/_10pxh">
-
 
         <LinearLayout
             android:id="@+id/linearRoweighteen"
@@ -370,9 +372,10 @@
                     android:id="@+id/imagePlus"
                     android:layout_width="@dimen/_31pxh"
                     android:layout_height="@dimen/_31pxh"
-                    android:layout_gravity="center|left"
+                    android:layout_gravity="center|end"
                     android:scaleType="fitXY"
-                    android:src="@drawable/img_plus_white_a700" />
+                    android:src="@drawable/img_plus_white_a700"
+                    tools:ignore="ContentDescription"/>
             </LinearLayout>
 
             <TextView
@@ -396,7 +399,8 @@
                 android:layout_marginTop="@dimen/_150pxv"
                 android:layout_marginEnd="@dimen/_106pxh"
                 android:scaleType="fitXY"
-                android:src="@drawable/img_bbcapcule_white_a700" />
+                android:src="@drawable/img_bbcapcule_white_a700"
+                tools:ignore="ContentDescription"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

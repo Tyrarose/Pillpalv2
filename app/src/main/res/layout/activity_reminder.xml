@@ -351,7 +351,7 @@
                     android:layout_height="25dp"
                     android:layout_gravity="bottom|start"
                     android:background="@drawable/img_calendar_green_200" />
-                <Spinner
+                <!--Spinner
                     android:id="@+id/spinnerDurationOne"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -359,7 +359,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="@dimen/_6pxv"
                     android:layout_marginEnd="@dimen/_10pxh"
-                    tools:listitem="@layout/spinner_item" />
+                    tools:listitem="@layout/spinner_item" /-->
             </FrameLayout>
 
             <FrameLayout
@@ -385,7 +385,7 @@
                     android:layout_height="25dp"
                     android:layout_gravity="bottom|start"
                     android:background="@drawable/vector__1_" />
-                <Spinner
+                <!-- Spinner
                     android:id="@+id/spinnerDosageOne"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -393,7 +393,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="@dimen/_6pxv"
                     android:layout_marginEnd="@dimen/_10pxh"
-                    tools:listitem="@layout/spinner_item" />
+                    tools:listitem="@layout/spinner_item" /-->
             </FrameLayout>
         </LinearLayout>
 
