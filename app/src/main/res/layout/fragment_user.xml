@@ -160,7 +160,7 @@
 
 
                 <LinearLayout
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/notificationContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -173,6 +173,8 @@
                         android:layout_height="wrap_content"
                         android:text ="Allow Notification"
                         android:padding="13dp"
+                        android:thumbTint="@color/White"
+                        android:track="@drawable/toggle_track"
                         android:gravity="center_horizontal | center_vertical"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
@@ -184,6 +186,8 @@
                         android:layout_height="wrap_content"
                         android:text ="Allow Banner"
                         android:padding="13dp"
+                        android:thumbTint="@color/White"
+                        android:track="@drawable/toggle_track"
                         android:gravity="center_horizontal | center_vertical"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
@@ -194,6 +198,8 @@
                         android:layout_height="wrap_content"
                         android:text ="Sound"
                         android:padding="13dp"
+                        android:thumbTint="@color/White"
+                        android:track="@drawable/toggle_track"
                         android:gravity="center_horizontal | center_vertical"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
@@ -204,6 +210,8 @@
                         android:layout_height="wrap_content"
                         android:text ="Vibration"
                         android:padding="13dp"
+                        android:thumbTint="@color/White"
+                        android:track="@drawable/toggle_track"
                         android:gravity="center_horizontal | center_vertical"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
@@ -378,7 +386,7 @@
 
                     <LinearLayout
                         android:id="@+id/signOutContainer"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
