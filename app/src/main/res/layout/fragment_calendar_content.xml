@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="start"
-    style="@style/groupStylewhite_A700"
-    tools:context=".CalendarFragment">
+    style="@style/groupStylewhite_A700">
 
     <FrameLayout
         android:id="@+id/frameStackcar"
@@ -76,6 +74,7 @@
         android:layout_height="82dp"
         android:layout_marginStart="@dimen/_10pxh"
         android:layout_marginEnd="@dimen/_10pxh">
+
 
         <LinearLayout
             android:id="@+id/linearRoweighteen"
@@ -372,35 +371,183 @@
                     android:id="@+id/imagePlus"
                     android:layout_width="@dimen/_31pxh"
                     android:layout_height="@dimen/_31pxh"
-                    android:layout_gravity="center|end"
-                    android:scaleType="fitXY"
+                    android:layout_gravity="center|left"
                     android:src="@drawable/img_plus_white_a700"
-                    tools:ignore="ContentDescription"/>
+                    android:scaleType="fitXY"/>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtNothingHere"
-                style="@style/txtPoppinsbold16"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_69pxh"
-                android:layout_marginTop="@dimen/_32pxv"
-                android:layout_marginEnd="@dimen/_69pxh"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="@string/lbl_nothing_here" />
-            <ImageView
-                android:id="@+id/imageBbcapcule"
-                android:layout_width="@dimen/_29pxh"
-                android:layout_height="@dimen/_80pxh"
-                android:layout_gravity="bottom|center"
-                android:layout_marginStart="@dimen/_106pxh"
-                android:layout_marginTop="@dimen/_150pxv"
-                android:layout_marginEnd="@dimen/_106pxh"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_bbcapcule_white_a700"
-                tools:ignore="ContentDescription"/>
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <View
+                    android:id="@+id/group2"
+                    android:layout_width="310dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rectangle_bg_white_a700_radius_15"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:id="@+id/reminderMedImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/img_image16"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/reminderTitle"
+                    style="@style/txtPoppinsbold13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Warfarin, 10mg"
+                    android:textColor="@color/Black"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/reminderSubTitle"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="40dp"
+                    android:singleLine="true"
+                    android:text="3 Days"
+                    android:textColor="@color/Black"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:background="@drawable/img_clock_black_900"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="bottom|center"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/reminderTime"
+                    style="@style/txtPoppinsbold13"
+                    android:textSize="13dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="13dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="09:00 AM"
+                    android:textColor="@color/Black"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:background="@drawable/alarm"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="bottom|end"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:background="@drawable/group"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="top|end"
+                    android:scaleType="fitXY"/>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <View
+                    android:id="@+id/group2b"
+                    android:layout_width="310dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rectangle_bg_white_a700_radius_15"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:id="@+id/reminderMedImageb"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/img_image16"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/reminderTitleb"
+                    style="@style/txtPoppinsbold13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Warfarin, 10mg"
+                    android:textColor="@color/Black"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/reminderSubTitleb"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="40dp"
+                    android:singleLine="true"
+                    android:text="3 Days"
+                    android:textColor="@color/Black"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:background="@drawable/img_clock_black_900"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="bottom|center"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/reminderTimeb"
+                    style="@style/txtPoppinsbold13"
+                    android:textSize="13dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="13dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="08:30 PM"
+                    android:textColor="@color/Black"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:background="@drawable/alarm"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="bottom|end"
+                    android:scaleType="fitXY"/>
+                <View
+                    android:background="@drawable/group"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="top|end"
+                    android:scaleType="fitXY"/>
+            </FrameLayout>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

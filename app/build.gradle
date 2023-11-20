@@ -10,6 +10,7 @@ def lifecycleVersion = "2.2.0"
 def retrofitVersion = '2.9.0'
 def okhttpVersion = '4.9.0'
 def glideVersion = '4.11.0'
+def paging_version = "2.1.2"
 
 android {
     compileSdkVersion 33
@@ -17,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId "com.codingwithme.meowbottomnavigationbar"
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
