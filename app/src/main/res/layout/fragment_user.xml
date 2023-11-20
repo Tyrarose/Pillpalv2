@@ -90,9 +90,10 @@
             </LinearLayout>
             <View android:background="@color/black_900"
                 android:id="@+id/lineVectorNine"
-                android:layout_height="@dimen/_85pxv"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_125pxv"
                 android:layout_marginTop="@dimen/_6pxv"
-                android:layout_weight="0.1" android:layout_width="0dp"/>
+                android:layout_weight="0.01" android:layout_width="0dp"/>
             <LinearLayout android:gravity="start"
                 android:id="@+id/linearAge"
                 android:layout_height="wrap_content"
@@ -123,21 +124,28 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:overScrollMode="never"
+            android:overScrollMode="always"
             android:scrollbars="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/etNotification"
-                    style="@style/etSolidRounded"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginTop="@dimen/_23pxv"
                     android:layout_marginEnd="@dimen/_20pxh"
+                    android:background="@drawable/rectangle_bg_gray_400_radius_15">
+
+                <Button
+                    android:id="@+id/notificationBtn"
+                    style="@style/etSolidRounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/rectangle_bg_purple_100_radius_15"
                     android:drawableStart="@drawable/img_notification_bluegray_900"
                     android:drawablePadding="@dimen/_14pxh"
@@ -150,102 +158,272 @@
                     android:singleLine="true"
                     android:textColorHint="@color/bluegray_900" />
 
+
+                <LinearLayout
+                    android:visibility="visible"
+                    android:id="@+id/notificationContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="23dp"
+                    android:orientation="vertical">
+
+                    <Switch
+                        android:id="@+id/allowNotifBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text ="Allow Notification"
+                        android:padding="13dp"
+                        android:gravity="center_horizontal | center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
+
+
+                    <Switch
+                        android:id="@+id/allowBannerBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text ="Allow Banner"
+                        android:padding="13dp"
+                        android:gravity="center_horizontal | center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
+
+                    <Switch
+                        android:id="@+id/soundBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text ="Sound"
+                        android:padding="13dp"
+                        android:gravity="center_horizontal | center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
+
+                    <Switch
+                        android:id="@+id/vibrationBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text ="Vibration"
+                        android:padding="13dp"
+                        android:gravity="center_horizontal | center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rectangle_bg_white_a700_radius_15"/>
+
+
+                </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginTop="@dimen/_23pxv"
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:background="@drawable/rectangle_bg_white_a700_radius_15">
                 <Button
+                    android:id="@+id/privacyPolicyBtn"
+                    style="@style/etSolidRounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/rectangle_bg_purple_100_radius_15"
-                    android:drawablePadding="@dimen/_14pxh"
                     android:drawableStart="@drawable/img_search"
+                    android:drawablePadding="@dimen/_14pxh"
                     android:ellipsize="end"
                     android:hint="@string/lbl_privacy_policy"
-                    android:id="@+id/searchViewPrivacypolicy"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_20pxh"
-                    android:layout_marginStart="@dimen/_20pxh"
-                    android:layout_marginTop="@dimen/_23pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_10pxv"
-                    android:paddingEnd="@dimen/_30pxh"
                     android:paddingStart="@dimen/_13pxh"
                     android:paddingTop="@dimen/_12pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_10pxv"
                     android:singleLine="true"
-                    android:textColorHint="@color/bluegray_900"
-                    style="@style/etSolidRounded"/>
+                    android:textColorHint="@color/bluegray_900" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/privacyPolicyInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="23dp" />
+
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginTop="@dimen/_23pxv"
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:background="@drawable/rectangle_bg_white_a700_radius_15">
                 <Button
+                    android:id="@+id/termsOfServiceBtn"
+                    style="@style/etSolidRounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/rectangle_bg_purple_100_radius_15"
-                    android:drawablePadding="@dimen/_14pxh"
                     android:drawableStart="@drawable/img_clip_path_group"
+                    android:drawablePadding="@dimen/_14pxh"
                     android:ellipsize="end"
                     android:hint="@string/msg_terms_of_servic"
-                    android:id="@+id/etTermsofservic"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_20pxh"
-                    android:layout_marginStart="@dimen/_20pxh"
-                    android:layout_marginTop="@dimen/_23pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_10pxv"
-                    android:paddingEnd="@dimen/_30pxh"
                     android:paddingStart="@dimen/_13pxh"
                     android:paddingTop="@dimen/_12pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_10pxv"
                     android:singleLine="true"
-                    android:textColorHint="@color/bluegray_900"
-                    style="@style/etSolidRounded"/>
-                <Button
-                    android:background="@drawable/rectangle_bg_purple_100_radius_15"
-                    android:drawablePadding="@dimen/_14pxh"
-                    android:drawableStart="@drawable/img_file"
-                    android:ellipsize="end"
-                    android:hint="@string/msg_community_guide"
-                    android:id="@+id/btn4"
+                    android:textColorHint="@color/bluegray_900" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/termOfServicesInfo"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:padding="23dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginTop="@dimen/_23pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_10pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_13pxh"
-                    android:paddingTop="@dimen/_12pxv"
-                    android:singleLine="true"
-                    android:textColorHint="@color/bluegray_900"
-                    style="@style/etSolidRounded"/>
-                <Button
-                    android:background="@drawable/rectangle_bg_purple_100_radius_15"
-                    android:drawablePadding="@dimen/_14pxh"
-                    android:drawableStart="@drawable/img_question"
-                    android:ellipsize="end"
-                    android:hint="@string/lbl_support"
-                    android:id="@+id/btn5"
-                    android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_20pxh"
+                    android:background="@drawable/rectangle_bg_white_a700_radius_15">
+
+                    <Button
+                        android:id="@+id/commGuideBtn"
+                        style="@style/etSolidRounded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_bg_purple_100_radius_15"
+                        android:drawableStart="@drawable/img_file"
+                        android:drawablePadding="@dimen/_14pxh"
+                        android:ellipsize="end"
+                        android:hint="@string/msg_community_guide"
+                        android:paddingStart="@dimen/_13pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_10pxv"
+                        android:singleLine="true"
+                        android:textColorHint="@color/bluegray_900" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/commGuideInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="23dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginTop="@dimen/_23pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_10pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_13pxh"
-                    android:paddingTop="@dimen/_12pxv"
-                    android:singleLine="true"
-                    android:textColorHint="@color/bluegray_900"
-                    style="@style/etSolidRounded"/>
-                <Button
-                    android:background="@drawable/rectangle_bg_purple_100_radius_15"
-                    android:drawablePadding="@dimen/_14pxh"
-                    android:drawableStart="@drawable/img_clock"
-                    android:ellipsize="end"
-                    android:hint="@string/lbl_sign_out"
-                    android:id="@+id/btn6"
-                    android:inputType="text"
-                    android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_20pxh"
+                    android:background="@drawable/rectangle_bg_white_a700_radius_15">
+
+                    <Button
+                        android:id="@+id/suppBtn"
+                        style="@style/etSolidRounded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_bg_purple_100_radius_15"
+                        android:drawableStart="@drawable/img_question"
+                        android:drawablePadding="@dimen/_14pxh"
+                        android:ellipsize="end"
+                        android:hint="@string/lbl_support"
+                        android:paddingStart="@dimen/_13pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_10pxv"
+                        android:singleLine="true"
+                        android:textColorHint="@color/bluegray_900" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/suppInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="23dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginTop="@dimen/_23pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_10pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_13pxh"
-                    android:paddingTop="@dimen/_12pxv"
-                    android:singleLine="true"
-                    android:textColorHint="@color/bluegray_900"
-                    style="@style/etSolidRounded" tools:ignore="Autofill"/>
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:background="@drawable/rectangle_bg_white_a700_radius_15">
+
+                    <Button
+                        android:id="@+id/signOutBtn"
+                        style="@style/etSolidRounded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_bg_purple_100_radius_15"
+                        android:drawableStart="@drawable/img_clock"
+                        android:drawablePadding="@dimen/_14pxh"
+                        android:ellipsize="end"
+                        android:hint="@string/lbl_sign_out"
+                        android:paddingStart="@dimen/_13pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_10pxv"
+                        android:singleLine="true"
+                        android:textColorHint="@color/bluegray_900" />
+
+                    <LinearLayout
+                        android:id="@+id/signOutContainer"
+                        android:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="@dimen/_10pxh">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Are you sure you want to"
+                            android:gravity="center_horizontal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:text="Sign out?"
+                            android:drawableStart="@drawable/img_clock"
+                            android:paddingStart="105dp"
+                            android:paddingBottom="10dp"/>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_60pxh"
+                            android:layout_marginEnd="@dimen/_60pxh"
+                            style="@style/etSolidRounded"
+                            android:textColorHint="@color/bluegray_900"
+                            android:hint="Yes"/>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/etSolidRounded"
+                            android:layout_marginStart="@dimen/_60pxh"
+                            android:layout_marginTop="@dimen/_10pxv"
+                            android:layout_marginEnd="@dimen/_60pxh"
+                            android:textColorHint="@color/bluegray_900"
+                            android:hint="No"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
