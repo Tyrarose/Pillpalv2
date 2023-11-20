@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_interaction_result"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -52,24 +53,45 @@
 
 
             <LinearLayout
+                android:id="@+id/buttonContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <SearchView
-                    android:id="@+id/lineLineSix"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="18.96dp"
-                    android:layout_marginTop="9.48dp"
-                    android:queryHint="Tylenol" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
+
+
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:defaultQueryHint="Tylenol"
+                app:iconifiedByDefault="false"
+                android:layout_margin="8dp"/>
+
+            <ListView
+                android:visibility="gone"
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/searchView"
+                android:layout_marginTop="8dp"/>
+
             </LinearLayout>
 
 
+
+
+
+
+
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/threeButtonsGroup"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
             <TextView
                 android:id="@+id/txtAddtwodrugs"
                 android:layout_width="match_parent"
@@ -86,9 +108,13 @@
                 android:textSize="12sp"
                 android:text="@string/lbl_add_two_drugs" />
 
+
+
+            <!--                style="@style/btnSolidRounded"-->
             <Button
-                android:id="@+id/btnCheckInteractions"
+
                 style="@style/btnSolidRounded"
+                android:id="@+id/btnCheckInteractions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -113,9 +139,11 @@
                 android:layout_marginTop="9.48dp"
                 android:layout_marginRight="20dp"
                 android:orientation="horizontal">
+
+
                 <Button
-                    android:id="@+id/btnClear"
                     style="@style/btnSolidRounded_1"
+                    android:id="@+id/btnClear"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -130,9 +158,12 @@
                     android:singleLine="true"
                     android:text="@string/lbl_clear"
                     android:textAllCaps="false"/>
+
+
+<!--                style="@style/btnSolidRoundedOutline"-->
                 <Button
-                    android:id="@+id/btnLoadExample"
                     style="@style/btnSolidRoundedOutline"
+                    android:id="@+id/btnLoadExample"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="1.14dp"
@@ -144,6 +175,16 @@
                     android:textAllCaps="false"
                     android:text="@string/lbl_load_example" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtInteractionResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_centerHorizontal="true"/>
 
 
             <LinearLayout
@@ -195,6 +236,168 @@
                 android:src="@drawable/img_bbcapcule_white_a700"
                 tools:ignore="ContentDescription"
                 tools:src="@drawable/img_bbcapcule_white_a700" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/drugdrugResults"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            style="@style/groupStylered_300cornerRadius"
+                            android:layout_height="@dimen/_70pxv"
+                            android:layout_width="@dimen/_280pxh"
+                            android:layout_marginBottom="20dp">
+                            <TextView
+                                android:background="@drawable/rectangle_bg_white_a700_border_bluegray_800_19_radius_tl_15_bl_15"
+                                android:id="@+id/drugOne"
+                                android:layout_margin="2dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                style="@style/txtPoppinsbold15_1v2"
+                                android:layout_width="@dimen/_155pxv"
+                                android:lineSpacingExtra="@dimen/_2pxh"
+                                android:text="@string/lbl_warfarin" />
+                            <ImageView
+                                android:id="@+id/compareImage"
+                                android:layout_width="@dimen/_16pxh"
+                                android:layout_height="@dimen/_19pxh"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_minimize"
+                                tools:ignore="ContentDescription"
+                                tools:src="@drawable/img_minimize" />
+
+                            <TextView
+                                android:id="@+id/drugTwo"
+                                android:layout_width="@dimen/_155pxv"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2dp"
+                                style="@style/txtPoppinsbold15_1v2"
+                                android:background="@drawable/rectangle_bg_white_a700_border_bluegray_800_19_radius_tr_15_br_15"
+                                android:gravity="center"
+                                android:lineSpacingExtra="@dimen/_2pxh"
+                                android:text="@string/msg_acetaminophen" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:id="@+id/txtSEVERITYOne"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:ellipsize="end"
+                                android:gravity="top|start"
+                                android:lineSpacingExtra="@dimen/_3pxh"
+                                android:singleLine="true"
+                                style="@style/txtRobotoromanbold15_1"
+                                android:text="@string/lbl_severity" />
+                            <ImageView
+                                android:id="@+id/imageQuestion"
+                                android:layout_width="@dimen/_14pxh"
+                                android:layout_height="@dimen/_14pxh"
+                                android:layout_marginStart="@dimen/_2pxh"
+                                android:layout_marginTop="@dimen/_2pxv"
+                                android:layout_marginBottom="@dimen/_1pxv"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_question_white_a700" />
+                        </LinearLayout>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:ellipsize="end" android:gravity="center"
+                            android:id="@+id/btnModerateOne"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/_84pxh"
+                            android:layout_marginStart="@dimen/_84pxh"
+                            android:layout_height="@dimen/_30pxv"
+                            android:layout_width="@dimen/_115pxh"
+                            android:lineSpacingExtra="@dimen/_6pxh"
+                            android:paddingBottom="@dimen/_6pxv"
+                            android:paddingEnd="@dimen/_24pxh"
+                            android:paddingStart="@dimen/_25pxh"
+                            android:paddingTop="@dimen/_6pxv"
+                            android:singleLine="true"
+                            android:text="@string/lbl_moderate"
+                            android:textAllCaps="false"
+                            android:layout_marginBottom="20dp"
+                            style="@style/btnSolidRounded_5" tools:text="@string/lbl_moderate"/>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="always"
+                    android:scrollbars="vertical">
+
+                <LinearLayout android:id="@+id/linearColumnpriceSeven"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical">
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtPriceSeven"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_55pxh"
+                        android:layout_marginStart="@dimen/_55pxh"
+                        android:layout_marginTop="@dimen/_4pxv"
+                        android:layout_width="wrap_content"
+                        android:lineSpacingExtra="@dimen/_3pxh"
+                        android:singleLine="true"
+                        style="@style/txtRobotoromanbold15_1"
+                        android:text="@string/lbl_description"/>
+                    <TextView android:gravity="center_horizontal"
+                        android:id="@+id/txtDescriptionSix"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_1pxh"
+                        android:layout_marginTop="@dimen/_5pxv"
+                        android:layout_width="match_parent"
+                        android:lineSpacingExtra="@dimen/_3pxh"
+                        style="@style/txtInterregular12"
+                        android:text="@string/msg_lorem_ipsum_dol"/>
+                    <TextView android:ellipsize="end"
+                        android:gravity="center_horizontal"
+                        android:id="@+id/txtPriceEight"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_52pxh"
+                        android:layout_marginStart="@dimen/_55pxh"
+                        android:layout_marginTop="@dimen/_23pxv"
+                        android:layout_width="match_parent"
+                        android:lineSpacingExtra="@dimen/_3pxh"
+                        android:singleLine="true"
+                        style="@style/txtRobotoromanbold15_1"
+                        android:text="@string/msg_extended_descri"/>
+                    <TextView android:gravity="center_horizontal"
+                        android:id="@+id/txtDescriptionSeven"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_1pxh"
+                        android:layout_marginTop="@dimen/_5pxv"
+                        android:layout_width="match_parent"
+                        android:lineSpacingExtra="@dimen/_3pxh"
+                        style="@style/txtInterregular12"
+                        android:text="@string/msg_lorem_ipsum_dol2"/>
+                </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+
         </LinearLayout>
     </FrameLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

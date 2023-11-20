@@ -46,5 +46,8 @@
     <color name="purple_50">#f1e9f3</color>
 
 
+    <color name="lavender">#8692f7</color>
+    <color name="enabledButtonColor">#A5CDD7</color>
+    <color name="disabledButtonColor">#F7F7F7</color>
 
 </resources>
