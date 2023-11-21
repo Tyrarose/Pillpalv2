@@ -9,20 +9,28 @@ import com.codingwithme.meowbottomnavigationbar.CalendarFragment
 import com.codingwithme.meowbottomnavigationbar.R
 import android.app.TimePickerDialog
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewAdapter
+import com.codingwithme.meowbottomnavigationbar.RecyclerViewList
 import java.util.*
 
-class ReminderFragment : Fragment() {
+class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var medicineName: EditText
     private var selectedImageResId: Int = R.drawable.img_image16
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
+    private lateinit var recyclerViewList: ArrayList<RecyclerViewList>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_reminder, container, false)
+
+        recyclerViewList = ArrayList<RecyclerViewList>()
+        recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, requireContext(), this)
+
+        val recyclerViewList = ArrayList<RecyclerViewList>()
 
         //Medicine Time Edit
         val txtTimeB: TextView = view.findViewById(R.id.txtTimeB)
@@ -90,11 +98,16 @@ class ReminderFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
 
-            // Save the medicine name when the reminder is set
             val medicineNameText = medicineName.text.toString()
             saveMedicineName(medicineNameText)
         }
 
+        val btnSave: AppCompatButton = view.findViewById(R.id.btnSave)
+        btnSave.setOnClickListener {
+            val newItem = RecyclerViewList(selectedImageResId, medicineName.text.toString())
+            recyclerViewList.add(newItem)
+            recyclerViewAdapter.notifyDataSetChanged()
+        }
         return view
     }
 
@@ -105,5 +118,9 @@ class ReminderFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() = ReminderFragment()
+    }
+
+    override fun onItemClick(position: Int) {
+        // Handle item click here
     }
 }
