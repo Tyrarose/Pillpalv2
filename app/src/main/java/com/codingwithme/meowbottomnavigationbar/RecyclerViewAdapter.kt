@@ -41,4 +41,9 @@ class RecyclerViewAdapter(private val recyclerViewList: ArrayList<RecyclerViewLi
             }
         }
     }
+
+    fun updateItem(position: Int, newItem: RecyclerViewList) {
+        recyclerViewList[position] = newItem
+        notifyItemChanged(position)
+    }
 }

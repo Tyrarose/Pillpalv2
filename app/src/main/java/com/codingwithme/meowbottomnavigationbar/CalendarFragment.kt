@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,10 +20,17 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
 
+        val btnSetReminder: ImageView = view.findViewById(R.id.btnSetReminder)
+        btnSetReminder.setOnClickListener {
+            val reminderFragment = ReminderFragment.newInstance()
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, reminderFragment) // Replace 'fragmentContainer' with the id of your container
+                .addToBackStack(null)
+                .commit()
+        }
+
         val recyclerViewList = ArrayList<RecyclerViewList>()
         recyclerViewList.add(RecyclerViewList(R.drawable.img_tabletimage, "Warfarin"))
-        recyclerViewList.add(RecyclerViewList(R.drawable.img_image2023100, "Aspirin"))
-        recyclerViewList.add(RecyclerViewList(R.drawable.img_image16, "Ibuprofen"))
 
         val context = context
         if (context != null) {

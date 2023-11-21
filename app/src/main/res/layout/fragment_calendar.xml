@@ -392,18 +392,18 @@
                 android:layout_marginEnd="@dimen/_69pxh"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="@string/lbl_nothing_here" />
+                android:text="@string/lbl_nothing_here" /-->
             <ImageView
                 android:id="@+id/imageBbcapcule"
                 android:layout_width="@dimen/_29pxh"
                 android:layout_height="@dimen/_80pxh"
                 android:layout_gravity="bottom|center"
                 android:layout_marginStart="@dimen/_106pxh"
-                android:layout_marginTop="@dimen/_150pxv"
+                android:layout_marginTop="@dimen/_10pxv"
                 android:layout_marginEnd="@dimen/_106pxh"
                 android:scaleType="fitXY"
                 android:src="@drawable/img_bbcapcule_white_a700"
-                tools:ignore="ContentDescription"/-->
+                tools:ignore="ContentDescription"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
