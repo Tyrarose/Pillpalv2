@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import com.codingwithme.meowbottomnavigationbar.CalendarFragment
 import com.codingwithme.meowbottomnavigationbar.R
 import android.app.TimePickerDialog
+import android.content.Context
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewAdapter
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewList
@@ -20,6 +22,27 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     private var selectedImageResId: Int = R.drawable.img_image16
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private lateinit var recyclerViewList: ArrayList<RecyclerViewList>
+    private fun saveMedicineName(medicineName: String) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putString("medicine_name", medicineName)
+            apply()
+        }
+    }
+    private fun saveSelectedTime(selectedTime: String) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putString("selected_time", selectedTime)
+            apply()
+        }
+    }
+    private fun saveSelectedImage(selectedImageResId: Int) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putInt("selected_image_res_id", selectedImageResId)
+            apply()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -104,16 +127,14 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
         val btnSave: AppCompatButton = view.findViewById(R.id.btnSave)
         btnSave.setOnClickListener {
-            val newItem = RecyclerViewList(selectedImageResId, medicineName.text.toString())
-            recyclerViewList.add(newItem)
-            recyclerViewAdapter.notifyDataSetChanged()
+//            val newItem = RecyclerViewList(selectedImageResId, medicineName.text.toString())
+//            recyclerViewList.add(newItem)
+//            recyclerViewAdapter.notifyDataSetChanged()
+            Toast.makeText(context, "Button clicked!", Toast.LENGTH_SHORT).show()
         }
         return view
     }
 
-    private fun saveMedicineName(medicineName: String) {
-        // Implement your method to save the medicine name
-    }
 
     companion object {
         @JvmStatic

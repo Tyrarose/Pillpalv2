@@ -161,6 +161,8 @@ class DrugdrugFragment : Fragment() {
             txtAddtwodrugs?.text = "Two drugs added"
             txtAddtwodrugs?.setTypeface(null, Typeface.BOLD)
 
+            checkInteractionsBtn.isEnabled = true
+
             val checkInteractionsDrawable: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.rectangle_bg_teal_100_radius_21_5)
             checkInteractionsBtn.background = checkInteractionsDrawable
             checkInteractionsBtn.setTextAppearance(requireContext(), R.style.whitetext)
@@ -274,12 +276,21 @@ class DrugdrugFragment : Fragment() {
         val txtAddtwodrugs = requireView().findViewById<TextView>(R.id.txtAddtwodrugs)
         txtAddtwodrugs?.setText(R.string.lbl_add_two_drugs)
         txtAddtwodrugs?.setTypeface(null, Typeface.NORMAL)
+
+
+        val interactionResultText = requireView().findViewById<TextView>(R.id.txtInteractionResult)
+        interactionResultText.visibility = View.GONE
+
+
+        val drugdrugResults = requireView().findViewById<LinearLayout>(R.id.drugdrugResults)
+        drugdrugResults.visibility = View.GONE
     }
 
     fun checkInteractions() {
 //        val resultsFragment = fragment_interaction_result()
         val createdButtons = createdButtons.toList()
         val interactionResultText = requireView().findViewById<TextView>(R.id.txtInteractionResult)
+        val drugdrugResults = requireView().findViewById<LinearLayout>(R.id.drugdrugResults)
 
         if (createdButtons.size == 2 && interactionResultText != null) {
             val drug1 = createdButtons[0].text.toString()
@@ -292,6 +303,7 @@ class DrugdrugFragment : Fragment() {
                 "No interaction detected between $drug1 and $drug2"
             }
             interactionResultText.text = resultMessage
+            drugdrugResults.visibility = View.VISIBLE
             interactionResultText.visibility = View.VISIBLE
         }
     }
