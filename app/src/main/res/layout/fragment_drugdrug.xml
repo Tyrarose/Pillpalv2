@@ -210,11 +210,10 @@
 
 
 
-
             <LinearLayout
                 android:id="@+id/drugdrugResults"
-                android:visibility="visible"
-                android:layout_marginTop="30dp"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -230,7 +229,7 @@
                             android:layout_gravity="center"
                             android:layout_height="@dimen/_70pxv"
                             android:layout_width="wrap_content"
-                            android:layout_marginBottom="20dp">
+                            android:layout_marginBottom="10dp">
                             <TextView
                                 android:background="@drawable/rectangle_bg_white_a700_border_bluegray_800_19_radius_tl_15_bl_15"
                                 android:id="@+id/drugOne"
@@ -270,7 +269,7 @@
                             android:orientation="horizontal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
+                            android:layout_marginBottom="5dp"
                             android:layout_gravity="center">
                             <TextView
                                 android:id="@+id/txtSEVERITYOne"
@@ -330,7 +329,6 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginStart="@dimen/_55pxh"
-                            android:layout_marginTop="@dimen/_4pxv"
                             android:layout_marginEnd="@dimen/_55pxh"
                             android:ellipsize="end"
                             android:lineSpacingExtra="@dimen/_3pxh"
@@ -347,7 +345,6 @@
                             android:gravity="center_horizontal"
                             android:lineSpacingExtra="@dimen/_3pxh"
                             android:text="@string/msg_lorem_ipsum_dol" />
-
                         <TextView
                             android:id="@+id/txtPriceEight"
                             style="@style/txtRobotoromanbold15_1"
@@ -375,6 +372,7 @@
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>
+
 
 
             <LinearLayout android:layout_width="match_parent"
