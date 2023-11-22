@@ -346,7 +346,7 @@
         <LinearLayout
             android:id="@+id/linearColumntotake"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20pxh"
             android:layout_marginTop="@dimen/_30pxh"
             android:layout_marginEnd="@dimen/_20pxh"
@@ -369,7 +369,7 @@
                     android:textColor="@color/Black"
                     android:text="@string/lbl_to_take" />
                 <ImageView
-                    android:id="@+id/imagePlus"
+                    android:id="@+id/btnSetReminder"
                     android:layout_width="@dimen/_31pxh"
                     android:layout_height="@dimen/_31pxh"
                     android:layout_gravity="center|end"
@@ -377,8 +377,11 @@
                     android:src="@drawable/img_plus_white_a700"
                     tools:ignore="ContentDescription"/>
             </LinearLayout>
-
-            <TextView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            <!--TextView
                 android:id="@+id/txtNothingHere"
                 style="@style/txtPoppinsbold16"
                 android:layout_width="wrap_content"
@@ -389,14 +392,14 @@
                 android:layout_marginEnd="@dimen/_69pxh"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="@string/lbl_nothing_here" />
+                android:text="@string/lbl_nothing_here" /-->
             <ImageView
                 android:id="@+id/imageBbcapcule"
                 android:layout_width="@dimen/_29pxh"
                 android:layout_height="@dimen/_80pxh"
                 android:layout_gravity="bottom|center"
                 android:layout_marginStart="@dimen/_106pxh"
-                android:layout_marginTop="@dimen/_150pxv"
+                android:layout_marginTop="@dimen/_20pxv"
                 android:layout_marginEnd="@dimen/_106pxh"
                 android:scaleType="fitXY"
                 android:src="@drawable/img_bbcapcule_white_a700"
