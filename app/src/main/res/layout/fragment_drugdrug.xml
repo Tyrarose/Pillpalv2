@@ -207,23 +207,25 @@
 
 
 
+
+
+
+
             <LinearLayout
                 android:id="@+id/drugdrugResults"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="vertical">
-                <FrameLayout
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
                     <LinearLayout
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <LinearLayout
+                            android:gravity="center"
                             style="@style/groupStylered_300cornerRadius"
                             android:layout_gravity="center"
                             android:layout_height="@dimen/_70pxv"
@@ -292,11 +294,9 @@
                                 android:src="@drawable/img_question_white_a700" />
                         </LinearLayout>
                         <androidx.appcompat.widget.AppCompatButton
-                            android:ellipsize="end" android:gravity="center"
+                            android:ellipsize="end"
                             android:id="@+id/btnModerateOne"
                             android:layout_gravity="center"
-                            android:layout_marginEnd="@dimen/_84pxh"
-                            android:layout_marginStart="@dimen/_84pxh"
                             android:layout_height="@dimen/_30pxv"
                             android:layout_width="@dimen/_115pxh"
                             android:lineSpacingExtra="@dimen/_6pxh"
@@ -310,7 +310,6 @@
                             android:layout_marginBottom="20dp"
                             style="@style/btnSolidRounded_5" tools:text="@string/lbl_moderate"/>
                     </LinearLayout>
-                </FrameLayout>
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -318,53 +317,61 @@
                     android:overScrollMode="always"
                     android:scrollbars="vertical">
 
-                    <LinearLayout android:id="@+id/linearColumnpriceSeven"
-                        android:layout_gravity="center"
-                        android:layout_height="match_parent"
+                    <LinearLayout
+                        android:id="@+id/linearColumnpriceSeven"
                         android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <TextView android:ellipsize="end"
+
+                        <TextView
                             android:id="@+id/txtPriceSeven"
-                            android:layout_gravity="center_horizontal"
+                            style="@style/txtRobotoromanbold15_1"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_55pxh"
+                            android:layout_gravity="center_horizontal"
                             android:layout_marginStart="@dimen/_55pxh"
                             android:layout_marginTop="@dimen/_4pxv"
-                            android:layout_width="wrap_content"
+                            android:layout_marginEnd="@dimen/_55pxh"
+                            android:ellipsize="end"
                             android:lineSpacingExtra="@dimen/_3pxh"
                             android:singleLine="true"
-                            style="@style/txtRobotoromanbold15_1"
-                            android:text="@string/lbl_description"/>
-                        <TextView android:gravity="center_horizontal"
+                            android:text="@string/lbl_description" />
+
+                        <TextView
                             android:id="@+id/txtDescriptionSix"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="@dimen/_1pxh"
-                            android:layout_marginTop="@dimen/_5pxv"
-                            android:layout_width="match_parent"
-                            android:lineSpacingExtra="@dimen/_3pxh"
                             style="@style/txtInterregular12"
-                            android:text="@string/msg_lorem_ipsum_dol"/>
-                        <TextView android:ellipsize="end"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_marginEnd="@dimen/_1pxh"
                             android:gravity="center_horizontal"
+                            android:lineSpacingExtra="@dimen/_3pxh"
+                            android:text="@string/msg_lorem_ipsum_dol" />
+
+                        <TextView
                             android:id="@+id/txtPriceEight"
+                            style="@style/txtRobotoromanbold15_1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_52pxh"
                             android:layout_marginStart="@dimen/_55pxh"
                             android:layout_marginTop="@dimen/_23pxv"
-                            android:layout_width="match_parent"
+                            android:layout_marginEnd="@dimen/_52pxh"
+                            android:ellipsize="end"
+                            android:gravity="center_horizontal"
                             android:lineSpacingExtra="@dimen/_3pxh"
                             android:singleLine="true"
-                            style="@style/txtRobotoromanbold15_1"
-                            android:text="@string/msg_extended_descri"/>
-                        <TextView android:gravity="center_horizontal"
+                            android:text="@string/msg_extended_descri" />
+
+                        <TextView
                             android:id="@+id/txtDescriptionSeven"
+                            style="@style/txtInterregular12"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="@dimen/_1pxh"
                             android:layout_marginTop="@dimen/_5pxv"
-                            android:layout_width="match_parent"
+                            android:gravity="center_horizontal"
                             android:lineSpacingExtra="@dimen/_3pxh"
-                            style="@style/txtInterregular12"
-                            android:text="@string/msg_lorem_ipsum_dol2"/>
+                            android:text="@string/msg_lorem_ipsum_dol2" />
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>

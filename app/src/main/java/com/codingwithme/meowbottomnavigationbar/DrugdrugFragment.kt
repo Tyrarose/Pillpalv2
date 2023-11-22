@@ -302,9 +302,16 @@ class DrugdrugFragment : Fragment() {
             } else {
                 "No interaction detected between $drug1 and $drug2"
             }
-            interactionResultText.text = resultMessage
+//            interactionResultText.text = resultMessage
+
+
+            val drugOne = requireView().findViewById<TextView>(R.id.drugOne)
+            val drugTwo = requireView().findViewById<TextView>(R.id.drugTwo)
+
+            drugOne.text = drug1
+            drugTwo.text = drug2
             drugdrugResults.visibility = View.VISIBLE
-            interactionResultText.visibility = View.VISIBLE
+//            interactionResultText.visibility = View.VISIBLE
         }
     }
 
