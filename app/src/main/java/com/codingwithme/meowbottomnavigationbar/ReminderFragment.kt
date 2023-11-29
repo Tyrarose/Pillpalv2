@@ -16,12 +16,18 @@ import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RectShape
 import android.icu.text.SimpleDateFormat
 import android.widget.Button
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codingwithme.meowbottomnavigationbar.MainActivity
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewAdapter
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewList
+import com.codingwithme.meowbottomnavigationbar.TimeAdapter
+import com.codingwithme.meowbottomnavigationbar.TimeItem
 import java.util.*
 
 class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
@@ -33,6 +39,9 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     private lateinit var recyclerViewList: ArrayList<RecyclerViewList>
     private var selectedTime: String = "09:00 AM"
     private var reminders = mutableListOf<Reminder>()
+    private lateinit var timeList: ArrayList<TimeItem>
+    private lateinit var timeAdapter: TimeAdapter
+
     private fun saveMedicineName(medicineName: String) {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
         with (sharedPref.edit()) {
@@ -67,6 +76,13 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
         val recyclerViewList = ArrayList<RecyclerViewList>()
 
+        // Set up the RecyclerView
+        timeList = ArrayList<TimeItem>()
+        timeAdapter = TimeAdapter(timeList)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewTime)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = timeAdapter
+
         //Medicine Time Edit
         val txtTimeB: TextView = view.findViewById(R.id.txtTimeB)
         txtTimeB.setOnClickListener {
@@ -92,16 +108,16 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             val timePickerDialog = TimePickerDialog(
                 context,
                 { _, hourOfDay, minute ->
-                    // Format the selected time and update selectedTime
+                    // Format the selected time
                     val calendar = Calendar.getInstance()
                     calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
                     calendar.set(Calendar.MINUTE, minute)
                     val format = SimpleDateFormat("hh:mm a", Locale.getDefault())
-                    selectedTime = format.format(calendar.time)
+                    val selectedTime = format.format(calendar.time)
 
-                    // Update the txtTimeB TextView with the selected time
-                    val txtTimeB: TextView = view.findViewById(R.id.txtTimeB)
-                    txtTimeB.text = selectedTime
+                    // Add the new time to the RecyclerView
+                    timeList.add(TimeItem(selectedTime))
+                    timeAdapter.notifyDataSetChanged()
                 },
                 Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
                 Calendar.getInstance().get(Calendar.MINUTE),
@@ -109,6 +125,7 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             )
             timePickerDialog.show()
         }
+
 
         // Medicine Image
         fun applyBorder(view: ImageView) {

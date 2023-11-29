@@ -255,6 +255,7 @@
                         android:scaleType="fitXY"
                         android:text="Time &amp; Schedule"
                         android:textColor="@color/Black" />
+
                     <LinearLayout
                         android:id="@+id/linearRowtime"
                         android:layout_width="match_parent"
@@ -262,6 +263,13 @@
                         android:layout_marginStart="@dimen/_1pxh"
                         android:layout_marginTop="@dimen/_12pxv"
                         android:orientation="horizontal">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="vertical"/>
+
                         <FrameLayout
                             android:id="@+id/frameStacktimeB"
                             style="@style/groupStylegreen_200cornerRadius"
