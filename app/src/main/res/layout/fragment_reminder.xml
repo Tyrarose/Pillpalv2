@@ -206,14 +206,17 @@
                         android:layout_width="@dimen/_63pxh"
                         android:scaleType="fitXY"
                         android:background="@drawable/img_syringeimage"/>
+
                     <ImageView
                         android:id="@+id/imageSyringeImageOne"
+                        android:layout_width="@dimen/_63pxh"
                         android:layout_height="@dimen/_63pxh"
                         android:layout_marginStart="@dimen/_10pxh"
-                        android:layout_width="@dimen/_63pxh"
-                        android:scaleType="fitXY"
                         android:background="@drawable/img_syringeimage_63x63"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_syringeimage_63x63"/>
+                        android:scaleType="fitXY"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_syringeimage_63x63" />
+
                     <ImageView android:id="@+id/imageUser"
                         android:layout_height="@dimen/_63pxh"
                         android:layout_marginStart="@dimen/_10pxh"
@@ -386,27 +389,26 @@
                 android:layout_marginTop="@dimen/_10pxv"
                 android:layout_width="@dimen/_308pxh"/>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:ellipsize="end"
-                android:gravity="center"
+            <Button
                 android:id="@+id/btnSave"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="@dimen/_278pxh"
                 android:layout_height="@dimen/_44pxv"
-                android:layout_marginBottom="@dimen/_20pxv"
-                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="@dimen/_10pxh"
                 android:layout_marginTop="@dimen/_39pxv"
-                android:layout_width="@dimen/_278pxh"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:paddingBottom="@dimen/_10pxv"
-                android:paddingEnd="@dimen/_30pxh"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginBottom="@dimen/_20pxv"
                 android:paddingStart="@dimen/_30pxh"
                 android:paddingTop="@dimen/_10pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_10pxv"
+                android:ellipsize="end"
                 android:singleLine="true"
                 android:textAllCaps="false"
-                style="@style/groupStylegreen_200cornerRadius"
                 android:text="SAVE"
-                android:textColor="@color/White" />
+                android:textColor="@color/White"
+                style="@style/groupStylegreen_200cornerRadius" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

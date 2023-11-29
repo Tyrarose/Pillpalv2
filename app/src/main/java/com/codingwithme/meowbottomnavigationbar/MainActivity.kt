@@ -13,6 +13,7 @@ import com.jakewharton.threetenabp.AndroidThreeTen
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MyViewModel
+    private val recyclerViewList = ArrayList<RecyclerViewList>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +60,14 @@ class MainActivity : AppCompatActivity() {
         }
     } // ============================== END OF ONCREATE ============================================
 
+    fun addReminder(reminder: RecyclerViewList) {
+        recyclerViewList.add(reminder)
+        println("Current reminders: $recyclerViewList") // Add this line
+    }
+
+    fun getReminderList(): ArrayList<RecyclerViewList> {
+        return recyclerViewList
+    }
 
     private fun replaceFragment(fragment:Fragment){
         val fragmentTransition = supportFragmentManager.beginTransaction()
@@ -69,4 +78,5 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransition = supportFragmentManager.beginTransaction()
         fragmentTransition.add(R.id.fragmentContainer,fragment).addToBackStack(Fragment::class.java.simpleName).commit()
     }
+
 }

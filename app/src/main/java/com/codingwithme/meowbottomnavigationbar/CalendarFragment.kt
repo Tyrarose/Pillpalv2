@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerViewAdapter: RecyclerViewAdapter // Declare the adapter as a class variable
+    private lateinit var recyclerViewList: ArrayList<RecyclerViewList> // Declare the list as a class variable
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,18 +31,24 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
                 .commit()
         }
 
-        val recyclerViewList = ArrayList<RecyclerViewList>()
-        recyclerViewList.add(RecyclerViewList(R.drawable.img_tabletimage, "Warfarin"))
+        recyclerViewList = ArrayList<RecyclerViewList>()
 
         val context = context
         if (context != null) {
-            val recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, context, this)
+            recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, context, this) // Initialize the adapter
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = recyclerViewAdapter
             recyclerView.addItemDecoration(SpacesItemDecoration(10))
-                } else {
-                }
+        } else {
+        }
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        recyclerViewList = (activity as MainActivity).getReminderList() // Get the updated list
+        recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, requireContext(), this) // Create a new adapter with the updated list
+        recyclerView.adapter = recyclerViewAdapter // Set the new adapter
     }
 
     override fun onItemClick(position: Int) {
@@ -53,7 +61,7 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     }
 
     companion object {
-       @JvmStatic
+        @JvmStatic
         fun newInstance() =
             CalendarFragment().apply {
                 arguments = Bundle().apply {}

@@ -9,9 +9,17 @@ import com.codingwithme.meowbottomnavigationbar.CalendarFragment
 import com.codingwithme.meowbottomnavigationbar.R
 import android.app.TimePickerDialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.RectShape
+import android.icu.text.SimpleDateFormat
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import com.codingwithme.meowbottomnavigationbar.MainActivity
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewAdapter
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewList
 import java.util.*
@@ -19,9 +27,12 @@ import java.util.*
 class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var medicineName: EditText
-    private var selectedImageResId: Int = R.drawable.img_image16
+    private var selectedImageResId: Int = R.drawable.img_user_white_a700
+    private var selectedImageView: ImageView? = null
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private lateinit var recyclerViewList: ArrayList<RecyclerViewList>
+    private var selectedTime: String = "09:00 AM"
+    private var reminders = mutableListOf<Reminder>()
     private fun saveMedicineName(medicineName: String) {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
         with (sharedPref.edit()) {
@@ -49,6 +60,7 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_reminder, container, false)
+        val btnSave = view.findViewById<Button>(R.id.btnSave)
 
         recyclerViewList = ArrayList<RecyclerViewList>()
         recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, requireContext(), this)
@@ -77,37 +89,78 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         //Medicine Time
         val imagePlus: ImageView = view.findViewById(R.id.imagePlus)
         imagePlus.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            val hour = calendar.get(Calendar.HOUR_OF_DAY)
-            val minute = calendar.get(Calendar.MINUTE)
-            val is24HourFormat = android.text.format.DateFormat.is24HourFormat(context)
-            TimePickerDialog(context, { _, selectedHour, selectedMinute ->
-            }, hour, minute, is24HourFormat).show()
+            val timePickerDialog = TimePickerDialog(
+                context,
+                { _, hourOfDay, minute ->
+                    // Format the selected time and update selectedTime
+                    val calendar = Calendar.getInstance()
+                    calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                    calendar.set(Calendar.MINUTE, minute)
+                    val format = SimpleDateFormat("hh:mm a", Locale.getDefault())
+                    selectedTime = format.format(calendar.time)
+
+                    // Update the txtTimeB TextView with the selected time
+                    val txtTimeB: TextView = view.findViewById(R.id.txtTimeB)
+                    txtTimeB.text = selectedTime
+                },
+                Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
+                Calendar.getInstance().get(Calendar.MINUTE),
+                false
+            )
+            timePickerDialog.show()
         }
-        //Medicine Image
+
+        // Medicine Image
+        fun applyBorder(view: ImageView) {
+            // Remove border from previously selected image
+            selectedImageView?.background = null
+
+            // Create border
+            val border = ShapeDrawable(RectShape())
+            border.paint.color = Color.GREEN
+            border.paint.style = Paint.Style.STROKE
+            border.paint.strokeWidth = 10f
+
+            // Create a LayerDrawable with the image and border
+            val layers = arrayOf(view.drawable, border)
+            val layerDrawable = LayerDrawable(layers)
+
+            // Set the LayerDrawable as the ImageView's drawable
+            view.setImageDrawable(layerDrawable)
+
+            // Update selectedImageView
+            selectedImageView = view
+        }
+
         val imageCapsuleImage: ImageView = view.findViewById(R.id.imageCapsuleImage)
         imageCapsuleImage.setOnClickListener {
             selectedImageResId = R.drawable.img_image16
+            applyBorder(it as ImageView)
         }
         val imageTabletImage: ImageView = view.findViewById(R.id.imageTabletImage)
         imageTabletImage.setOnClickListener {
             selectedImageResId = R.drawable.img_tabletimage
-        }
-        val imageSyringeImage: ImageView = view.findViewById(R.id.imageSyringeImage)
-        imageCapsuleImage.setOnClickListener {
-            selectedImageResId = R.drawable.img_syringeimage
-        }
-        val imageSyringeImageOne: ImageView = view.findViewById(R.id.imageSyringeImageOne)
-        imageTabletImage.setOnClickListener {
-            selectedImageResId = R.drawable.img_syringeimage_63x63
+            applyBorder(it as ImageView)
         }
         val imageGelImage: ImageView = view.findViewById(R.id.imageGelImage)
-        imageCapsuleImage.setOnClickListener {
+        imageGelImage.setOnClickListener {
             selectedImageResId = R.drawable.img_gelimage
+            applyBorder(it as ImageView)
+        }
+        val imageSyringeImage: ImageView = view.findViewById(R.id.imageSyringeImage)
+        imageSyringeImage.setOnClickListener {
+            selectedImageResId = R.drawable.img_syringeimage
+            applyBorder(it as ImageView)
+        }
+        val imageSyringeImageOne: ImageView = view.findViewById(R.id.imageSyringeImageOne)
+        imageSyringeImageOne.setOnClickListener {
+            selectedImageResId = R.drawable.img_syringeimage_63x63
+            applyBorder(it as ImageView)
         }
         val imageUser: ImageView = view.findViewById(R.id.imageUser)
-        imageTabletImage.setOnClickListener {
+        imageUser.setOnClickListener {
             selectedImageResId = R.drawable.img_user_white_a700
+            applyBorder(it as ImageView)
         }
 
         //Medicine Name
@@ -125,13 +178,23 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             saveMedicineName(medicineNameText)
         }
 
-        val btnSave: AppCompatButton = view.findViewById(R.id.btnSave)
         btnSave.setOnClickListener {
-//            val newItem = RecyclerViewList(selectedImageResId, medicineName.text.toString())
-//            recyclerViewList.add(newItem)
-//            recyclerViewAdapter.notifyDataSetChanged()
-            Toast.makeText(context, "Button clicked!", Toast.LENGTH_SHORT).show()
+            val medicineNameText = medicineName.text.toString()
+            val selectedTime = txtTimeB.text.toString()
+            saveMedicineName(medicineNameText)
+            saveSelectedTime(selectedTime)
+            saveSelectedImage(selectedImageResId)
+            Toast.makeText(context, "Reminder Saved!", Toast.LENGTH_SHORT).show()
+
+            // Add the new reminder to the RecyclerViewList
+            val newReminder = RecyclerViewList(selectedImageResId, medicineNameText, selectedTime)
+            println("New reminder: $newReminder") // Add this line
+            (activity as MainActivity).addReminder(newReminder)
+
+            // Navigate back to the CalendarFragment
+            requireActivity().supportFragmentManager.popBackStack()
         }
+
         return view
     }
 
