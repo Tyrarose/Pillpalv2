@@ -9,8 +9,10 @@ import com.codingwithme.meowbottomnavigationbar.CalendarFragment
 import com.codingwithme.meowbottomnavigationbar.R
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Rect
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RectShape
@@ -26,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codingwithme.meowbottomnavigationbar.MainActivity
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewAdapter
 import com.codingwithme.meowbottomnavigationbar.RecyclerViewList
+import com.codingwithme.meowbottomnavigationbar.SpacesItemDecoration
 import com.codingwithme.meowbottomnavigationbar.TimeAdapter
 import com.codingwithme.meowbottomnavigationbar.TimeItem
 import java.util.*
@@ -71,17 +74,17 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.fragment_reminder, container, false)
         val btnSave = view.findViewById<Button>(R.id.btnSave)
 
-        recyclerViewList = ArrayList<RecyclerViewList>()
-        recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, requireContext(), this)
-
         val recyclerViewList = ArrayList<RecyclerViewList>()
+        recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, requireContext(), this)
 
         // Set up the RecyclerView
         timeList = ArrayList<TimeItem>()
         timeAdapter = TimeAdapter(timeList)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewTime)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = timeAdapter
+        recyclerView.addItemDecoration(SpacesItemDecoration(10))
+
 
         //Medicine Time Edit
         val txtTimeB: TextView = view.findViewById(R.id.txtTimeB)
@@ -115,8 +118,11 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
                     val format = SimpleDateFormat("hh:mm a", Locale.getDefault())
                     val selectedTime = format.format(calendar.time)
 
-                    // Add the new time to the RecyclerView
-                    timeList.add(TimeItem(selectedTime))
+                    // Create a new item with the selected time
+                    val newItem = TimeItem(selectedTime)
+
+                    // Add the new item to the list and notify the adapter
+                    timeList.add(newItem)
                     timeAdapter.notifyDataSetChanged()
                 },
                 Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
@@ -125,7 +131,6 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             )
             timePickerDialog.show()
         }
-
 
         // Medicine Image
         fun applyBorder(view: ImageView) {
@@ -211,7 +216,6 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             // Navigate back to the CalendarFragment
             requireActivity().supportFragmentManager.popBackStack()
         }
-
         return view
     }
 

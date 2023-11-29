@@ -256,26 +256,14 @@
                         android:text="Time &amp; Schedule"
                         android:textColor="@color/Black" />
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:id="@+id/linearRowtime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_1pxh"
-                        android:layout_marginTop="@dimen/_12pxv"
-                        android:orientation="horizontal">
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_marginTop="@dimen/_12pxv">
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerViewTime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:scrollbars="vertical"/>
-
-                        <FrameLayout
-                            android:id="@+id/frameStacktimeB"
-                            style="@style/groupStylegreen_200cornerRadius"
-                            android:layout_width="@dimen/_115pxh"
-                            android:layout_height="@dimen/_30pxv"
-                            android:layout_marginEnd="5dp">
                             <TextView
                                 android:id="@+id/txtTimeB"
                                 style="@style/txtPoppinsbold13_1"
@@ -283,28 +271,35 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layout_marginStart="@dimen/_26pxh"
-                                android:layout_marginTop="@dimen/_5pxv"
                                 android:layout_marginEnd="@dimen/_27pxh"
                                 android:layout_marginBottom="@dimen/_4pxv"
                                 android:gravity="top|start"
                                 android:singleLine="true"
-                                android:text="09:00 AM"
-                                android:textColor="@color/White" />
-                        </FrameLayout>
+                                android:text=""
+                                android:textColor="@color/Green" />
+
 
                         <ImageView
                             android:id="@+id/imagePlus"
                             android:layout_width="@dimen/_30pxh"
                             android:layout_height="@dimen/_30pxh"
-                            android:layout_gravity="start"
-                            android:layout_marginTop="@dimen/_5pxv"
-                            android:layout_marginEnd="@dimen/_27pxh"
-                            android:layout_marginBottom="@dimen/_4pxv"
+                            android:layout_marginStart="10dp"
+                            android:layout_alignParentEnd="true"
+
                             android:scaleType="fitXY"
                             android:src="@drawable/img_plus_green_200"
                             tools:ignore="ContentDescription"
-                            tools:src="@drawable/img_plus_green_200" />
-                    </LinearLayout>
+                            tools:src="@drawable/img_plus_green_200"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/imagePlus"
+                            android:scrollbars="vertical"/>
+
+                    </RelativeLayout>
+
                 </LinearLayout>
             </LinearLayout>
 
