@@ -51,6 +51,7 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         recyclerView.adapter = recyclerViewAdapter // Set the new adapter
     }
 
+
     override fun onItemClick(position: Int) {
         // Replace the fragment
         val reminderFragment = ReminderFragment.newInstance()

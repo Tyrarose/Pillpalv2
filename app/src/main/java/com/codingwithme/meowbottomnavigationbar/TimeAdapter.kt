@@ -10,7 +10,7 @@ class TimeAdapter(private val timeList: ArrayList<TimeItem>) :
     RecyclerView.Adapter<TimeAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtTimeB: TextView = itemView.findViewById(R.id.txtTimeB)
+        val timeTextView: TextView = itemView.findViewById(R.id.txtItemTime)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,7 +19,7 @@ class TimeAdapter(private val timeList: ArrayList<TimeItem>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txtTimeB.text = timeList[position].time
+        holder.timeTextView.text = timeList[position].time
     }
 
     override fun getItemCount() = timeList.size

@@ -39,9 +39,6 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     private var selectedImageResId: Int = R.drawable.img_user_white_a700
     private var selectedImageView: ImageView? = null
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
-    private lateinit var recyclerViewList: ArrayList<RecyclerViewList>
-    private var selectedTime: String = "09:00 AM"
-    private var reminders = mutableListOf<Reminder>()
     private lateinit var timeList: ArrayList<TimeItem>
     private lateinit var timeAdapter: TimeAdapter
 
@@ -86,40 +83,24 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         recyclerView.addItemDecoration(SpacesItemDecoration(10))
 
 
-        //Medicine Time Edit
-        val txtTimeB: TextView = view.findViewById(R.id.txtTimeB)
-        txtTimeB.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            val hour = calendar.get(Calendar.HOUR_OF_DAY)
-            val minute = calendar.get(Calendar.MINUTE)
-            val timePickerDialog = TimePickerDialog(
-                context,
-                { _, selectedHour, selectedMinute ->
-                    val selectedTime = String.format(Locale.getDefault(), "%02d:%02d", selectedHour, selectedMinute)
-                    txtTimeB.text = selectedTime
-                },
-                hour,
-                minute,
-                false
-            )
-            timePickerDialog.show()
-        }
-
         //Medicine Time
         val imagePlus: ImageView = view.findViewById(R.id.imagePlus)
         imagePlus.setOnClickListener {
             val timePickerDialog = TimePickerDialog(
                 context,
-                { _, hourOfDay, minute ->
+                { _, selectedHour, selectedMinute ->
+                    val selectedTime = String.format(Locale.getDefault(), "%02d:%02d", selectedHour, selectedMinute)
+                    Toast.makeText(context, "Selected time: $selectedTime", Toast.LENGTH_SHORT).show()
+
                     // Format the selected time
                     val calendar = Calendar.getInstance()
-                    calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                    calendar.set(Calendar.MINUTE, minute)
+                    calendar.set(Calendar.HOUR_OF_DAY, selectedHour)
+                    calendar.set(Calendar.MINUTE, selectedMinute)
                     val format = SimpleDateFormat("hh:mm a", Locale.getDefault())
-                    val selectedTime = format.format(calendar.time)
+                    val formattedTime = format.format(calendar.time)
 
                     // Create a new item with the selected time
-                    val newItem = TimeItem(selectedTime)
+                    val newItem = TimeItem(formattedTime)
 
                     // Add the new item to the list and notify the adapter
                     timeList.add(newItem)
@@ -131,6 +112,7 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             )
             timePickerDialog.show()
         }
+
 
         // Medicine Image
         fun applyBorder(view: ImageView) {
@@ -202,24 +184,25 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
         btnSave.setOnClickListener {
             val medicineNameText = medicineName.text.toString()
-            val selectedTime = txtTimeB.text.toString()
             saveMedicineName(medicineNameText)
-            saveSelectedTime(selectedTime)
             saveSelectedImage(selectedImageResId)
+
+            val selectedTimes = timeList.map { it.time }
+            saveSelectedTime(selectedTimes.joinToString(","))
+
+            // Create a new RecyclerViewList item for each selected time
+            selectedTimes.forEach { selectedTime ->
+                val newReminder = RecyclerViewList(selectedImageResId, medicineNameText, listOf(selectedTime))
+                (activity as MainActivity).addReminder(newReminder)
+            }
+
             Toast.makeText(context, "Reminder Saved!", Toast.LENGTH_SHORT).show()
-
-            // Add the new reminder to the RecyclerViewList
-            val newReminder = RecyclerViewList(selectedImageResId, medicineNameText, selectedTime)
-            println("New reminder: $newReminder") // Add this line
-            (activity as MainActivity).addReminder(newReminder)
-
-            // Navigate back to the CalendarFragment
             requireActivity().supportFragmentManager.popBackStack()
         }
+
+
         return view
     }
-
-
     companion object {
         @JvmStatic
         fun newInstance() = ReminderFragment()

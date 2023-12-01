@@ -55,6 +55,7 @@
                     android:text="Set Reminder"
                     style="@style/txtPoppinsbold15"
                     android:textColor="@color/Black"/>
+
                 <ImageView
                     android:id="@+id/imageMedsReminderI"
                     android:layout_gravity="center"
@@ -263,21 +264,6 @@
                         android:layout_marginStart="@dimen/_1pxh"
                         android:layout_marginEnd="@dimen/_10pxh"
                         android:layout_marginTop="@dimen/_12pxv">
-
-                            <TextView
-                                android:id="@+id/txtTimeB"
-                                style="@style/txtPoppinsbold13_1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="start"
-                                android:layout_marginStart="@dimen/_26pxh"
-                                android:layout_marginEnd="@dimen/_27pxh"
-                                android:layout_marginBottom="@dimen/_4pxv"
-                                android:gravity="top|start"
-                                android:singleLine="true"
-                                android:text=""
-                                android:textColor="@color/Green" />
-
 
                         <ImageView
                             android:id="@+id/imagePlus"

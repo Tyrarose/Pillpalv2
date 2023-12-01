@@ -24,7 +24,9 @@ class RecyclerViewAdapter(private val recyclerViewList: ArrayList<RecyclerViewLi
     override fun onBindViewHolder(@NonNull holder: ViewHolder, position: Int) {
         holder.imageView.setImageResource(recyclerViewList[position].image)
         holder.reminderTitle.text = recyclerViewList[position].text
+        holder.reminderTime.text = recyclerViewList[position].times.joinToString(", ") // Display all times
     }
+
     override fun getItemCount(): Int {
         return recyclerViewList.size
     }
@@ -32,6 +34,7 @@ class RecyclerViewAdapter(private val recyclerViewList: ArrayList<RecyclerViewLi
     class ViewHolder(itemView: View, private val listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val reminderTitle: TextView = itemView.findViewById(R.id.reminderTitle)
+        val reminderTime: TextView = itemView.findViewById(R.id.reminderTime) // Make sure you have this TextView in your layout
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
