@@ -28,44 +28,46 @@
 
         <FrameLayout
             android:id="@+id/frameStackgroup"
-            android:layout_gravity="top|center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="@dimen/_20pxv"
-            android:layout_marginEnd="@dimen/_33pxh"
+            android:layout_gravity="top|center"
             android:layout_marginStart="@dimen/_33pxh"
-            android:layout_width="match_parent">
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="@dimen/_33pxh"
+            android:layout_marginBottom="@dimen/_20pxv">
 
             <LinearLayout
                 android:id="@+id/linearNewmedicine"
-                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10pxh"
-                android:layout_width="wrap_content" android:orientation="vertical">
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:orientation="vertical">
+
                 <TextView
-                    android:gravity="top|center"
                     android:id="@+id/txtSetReminder"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_10pxh"
-                    android:layout_marginStart="@dimen/_10pxh"
+                    style="@style/txtPoppinsbold15"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10pxh"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:gravity="top|center"
                     android:lineSpacingExtra="@dimen/_8pxh"
                     android:singleLine="true"
                     android:text="Set Reminder"
-                    style="@style/txtPoppinsbold15"
-                    android:textColor="@color/Black"/>
+                    android:textColor="@color/Black" />
 
                 <ImageView
                     android:id="@+id/imageMedsReminderI"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_130pxh"
-                    android:layout_marginTop="@dimen/_8pxv"
                     android:layout_width="@dimen/_130pxh"
-                    android:scaleType="centerCrop"
+                    android:layout_height="@dimen/_130pxh"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_8pxv"
                     android:background="@drawable/img_medsreminderi"
+                    android:scaleType="centerCrop"
                     tools:ignore="ContentDescription"
-                    tools:src="@drawable/img_medsreminderi"/>
+                    tools:src="@drawable/img_medsreminderi" />
             </LinearLayout>
 
             <ImageView
@@ -81,19 +83,19 @@
                 tools:src="@drawable/img_arrowleft" />
 
             <ImageButton
-                android:background="@drawable/rectangle_bg_black_900_0c_radius_15"
                 android:id="@+id/btnNotification"
-                android:layout_gravity="top|end"
+                android:layout_width="@dimen/_40pxh"
                 android:layout_height="@dimen/_40pxh"
-                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_gravity="top|end"
                 android:layout_marginStart="@dimen/_10pxh"
                 android:layout_marginTop="@dimen/_1pxv"
-                android:layout_width="@dimen/_40pxh"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:background="@drawable/rectangle_bg_black_900_0c_radius_15"
                 android:paddingHorizontal="@dimen/_9pxh"
                 android:paddingVertical="@dimen/_9pxv"
                 android:scaleType="fitCenter"
                 android:src="@drawable/img_notification"
-                tools:ignore="ContentDescription"/>
+                tools:ignore="ContentDescription" />
         </FrameLayout>
 
         <LinearLayout
@@ -293,19 +295,20 @@
                 android:gravity="center"
                 android:id="@+id/linearRowduration"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_24pxh"
                 android:layout_marginTop="@dimen/_10pxh"
                 android:layout_marginEnd="@dimen/_24pxh"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <FrameLayout
                     android:id="@+id/linearDuration"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5pxv"
-                    android:gravity="start"
+                    android:layout_marginBottom="5dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/txtDuration"
                         style="@style/txtRobotoromanbold13_1"
@@ -317,30 +320,42 @@
                         android:text="Duration"
                         android:layout_marginBottom="30dp"
                         android:textColor="@color/Black" />
-                    <View
-                        android:id="@+id/medDuration"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="bottom|start"
-                        android:background="@drawable/img_calendar_green_200" />
-                    <!--Spinner
-                        android:id="@+id/spinnerDurationOne"
+
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="@dimen/_6pxv"
-                        android:layout_marginEnd="@dimen/_10pxh"
-                        tools:listitem="@layout/spinner_item" /-->
+                        android:orientation="horizontal"
+                        android:layout_gravity="bottom">
+                        <View
+                            android:id="@+id/medDuration"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/img_calendar_green_200" />
+                        <Spinner
+                            android:id="@+id/spinnerDurationOne"
+                            android:layout_width="120dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="30dp"
+                            android:layout_gravity="bottom"/>
+                        <Spinner
+                            android:id="@+id/spinnerDurationTwo"
+                            android:layout_width="120dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="160dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="bottom"
+                            tools:listitem="@array/spinner_durationTwo"/>
+                    </FrameLayout>
                 </FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/linearDosage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_marginTop="@dimen/_5pxv"
-                    android:gravity="start"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/txtDosage"
                         style="@style/txtRobotoromanbold13_1"
@@ -352,20 +367,35 @@
                         android:text="Dosage"
                         android:layout_marginBottom="30dp"
                         android:textColor="@color/Black" />
-                    <View
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="bottom|start"
-                        android:background="@drawable/vector__1_" />
-                    <!-- Spinner
-                        android:id="@+id/spinnerDosageOne"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="@dimen/_6pxv"
-                        android:layout_marginEnd="@dimen/_10pxh"
-                        tools:listitem="@layout/spinner_item" /-->
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="bottom">
+                        <View
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_gravity="bottom|start"
+                            android:background="@drawable/vector__1_" />
+                        <EditText
+                            android:id="@+id/numberDosage"
+                            android:layout_width="110dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="35dp"
+                            android:hint="enter no."
+                            android:inputType="number"
+                            android:layout_gravity="bottom"/>
+                        <Spinner
+                            android:id="@+id/spinnerDosageOne"
+                            android:layout_width="120dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="160dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_gravity="bottom"
+                            tools:listitem="@array/spinner_durationFour"/>
+                    </FrameLayout>
                 </FrameLayout>
             </LinearLayout>
 
@@ -384,7 +414,7 @@
                 android:layout_height="@dimen/_44pxv"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="@dimen/_10pxh"
-                android:layout_marginTop="@dimen/_39pxv"
+                android:layout_marginTop="@dimen/_10pxv"
                 android:layout_marginEnd="@dimen/_10pxh"
                 android:layout_marginBottom="@dimen/_20pxv"
                 android:paddingStart="@dimen/_30pxh"

@@ -17,9 +17,12 @@ import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RectShape
 import android.icu.text.SimpleDateFormat
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -71,6 +74,63 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.fragment_reminder, container, false)
         val btnSave = view.findViewById<Button>(R.id.btnSave)
 
+        // Spinner One
+        val spinnerOne: Spinner = view.findViewById(R.id.spinnerDurationOne)
+        val numbers = Array(31) { i -> if (i == 0) "No." else (i).toString() } // Add "No." as the first item
+        val adapterOne = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, numbers)
+        spinnerOne.adapter = adapterOne
+
+        spinnerOne.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                if (position != 0) {
+                    // Do something with the selected item
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Do something when nothing is selected
+            }
+        }
+
+        // Spinner Two
+        val spinnerTwo: Spinner = view.findViewById(R.id.spinnerDurationTwo)
+        val durations = arrayOf("Day", "Week", "Month", "Year") // Add "Day" as the first item
+        val adapterTwo = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, durations)
+        spinnerTwo.adapter = adapterTwo
+
+        spinnerTwo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                if (position != 0) {
+                    // Do something with the selected item
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Do something when nothing is selected
+            }
+        }
+
+        // Spinner Three
+        val spinnerThree: Spinner = view.findViewById(R.id.spinnerDosageOne)
+        val dosage = arrayOf("ml", "mg")
+        val adapterThree = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, dosage)
+        spinnerThree.adapter = adapterThree
+
+        spinnerThree.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                if (position != 0) {
+                    // Do something with the selected item
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Do something when nothing is selected
+            }
+        }
+
+        val editText: EditText = view.findViewById(R.id.numberDosage)
+
         val recyclerViewList = ArrayList<RecyclerViewList>()
         recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, requireContext(), this)
 
@@ -82,6 +142,37 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         recyclerView.adapter = timeAdapter
         recyclerView.addItemDecoration(SpacesItemDecoration(10))
 
+        timeAdapter.listener = object : TimeAdapter.OnItemClickListener {
+            override fun onEditClick(position: Int) {
+                // Handle edit click here
+                // You can show a dialog to edit the time
+                val timePickerDialog = TimePickerDialog(
+                    context,
+                    { _, hourOfDay, minute ->
+                        // Format the selected time
+                        val calendar = Calendar.getInstance()
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                        calendar.set(Calendar.MINUTE, minute)
+                        val format = SimpleDateFormat("hh:mm a", Locale.getDefault())
+                        val selectedTime = format.format(calendar.time)
+
+                        // Update the time in the list and notify the adapter
+                        timeList[position] = TimeItem(selectedTime)
+                        timeAdapter.notifyItemChanged(position)
+                    },
+                    Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
+                    Calendar.getInstance().get(Calendar.MINUTE),
+                    false
+                )
+                timePickerDialog.show()
+            }
+
+            override fun onDeleteClick(position: Int) {
+                // Handle delete click here
+                timeList.removeAt(position)
+                timeAdapter.notifyItemRemoved(position)
+            }
+        }
 
         //Medicine Time
         val imagePlus: ImageView = view.findViewById(R.id.imagePlus)

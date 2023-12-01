@@ -14,19 +14,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <TextView
             android:id="@+id/txtItemTime"
             style="@style/txtPoppinsbold13_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_15pxh"
             android:layout_marginTop="@dimen/_5pxv"
             android:layout_marginEnd="@dimen/_26pxh"
             android:layout_marginBottom="@dimen/_5pxv"
             android:singleLine="true"
             android:text="00:00 AM"
             android:textColor="@color/White" />
+        <View
+            android:id="@+id/timedeleteButton"
+            android:background="@drawable/group"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_100pxh"
+            android:layout_marginTop="@dimen/_6pxv"
+            android:layout_marginEnd="@dimen/_15pxh"
+            android:layout_marginBottom="@dimen/_5pxv"
+            android:scaleType="fitXY"/>
     </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

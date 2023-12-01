@@ -126,6 +126,17 @@
     <string name="head_10">Homemaker, economist: Candidates from all walks of life in Bengal assembly</string>
 
 
+    <string-array name="spinner_durationTwo">
+        <item>Day</item>
+        <item>Week</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+
+    <string-array name="spinner_durationFour">
+        <item>ml</item>
+        <item>mg</item>
+    </string-array>
 
 
 
