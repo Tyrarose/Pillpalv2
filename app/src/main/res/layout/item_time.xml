@@ -9,20 +9,23 @@
         android:id="@+id/frameStacktimeB"
         style="@style/groupStylegreen_200cornerRadius"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txtItemTime"
             style="@style/txtPoppinsbold13_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginStart="@dimen/_26pxh"
             android:layout_marginTop="@dimen/_5pxv"
             android:layout_marginEnd="@dimen/_26pxh"
             android:layout_marginBottom="@dimen/_5pxv"
-            android:gravity="top|start"
             android:singleLine="true"
+            android:text="00:00 AM"
             android:textColor="@color/White" />
     </FrameLayout>
 
