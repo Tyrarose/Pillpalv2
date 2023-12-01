@@ -15,6 +15,11 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter // Declare the adapter as a class variable
     private lateinit var recyclerViewList: ArrayList<RecyclerViewList> // Declare the list as a class variable
 
+    override fun onDeleteClick(position: Int) {
+        recyclerViewList.removeAt(position)
+        recyclerViewAdapter.notifyItemRemoved(position)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

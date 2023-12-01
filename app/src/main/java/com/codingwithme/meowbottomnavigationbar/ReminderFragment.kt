@@ -43,11 +43,13 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     private var selectedImageView: ImageView? = null
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private lateinit var timeList: ArrayList<TimeItem>
+    private lateinit var recyclerViewList: ArrayList<RecyclerViewList> // Declare recyclerViewList
     private lateinit var timeAdapter: TimeAdapter
     private var selectedNumber: String = ""
     private var selectedDuration: String = ""
     private var selectedDosage: String = ""
     private var dosageAmount: String = ""
+
 
 
     private fun saveMedicineName(medicineName: String) {
@@ -81,7 +83,7 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
         // Spinner One
         val spinnerOne: Spinner = view.findViewById(R.id.spinnerDurationOne)
-        val numbers = Array(31) { i -> if (i == 0) "Frequency" else (i).toString() } // Add "No." as the first item
+        val numbers = Array(31) { i -> if (i == 0) "freq." else (i).toString() } // Add "No." as the first item
         val adapterOne = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, numbers)
         spinnerOne.adapter = adapterOne
 
@@ -318,8 +320,17 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         @JvmStatic
         fun newInstance() = ReminderFragment()
     }
-
     override fun onItemClick(position: Int) {
-        // Handle item click here
+        // Get the item to be edited
+        val itemToEdit = recyclerViewList[position]
+
+        // Navigate to the edit screen with the details of itemToEdit
+        // You might need to create a new Fragment or Activity for editing items
+        // Pass itemToEdit to the edit screen so that the user can see the current details and edit them
+    }
+
+    override fun onDeleteClick(position: Int) {
+        recyclerViewList.removeAt(position)
+        recyclerViewAdapter.notifyItemRemoved(position)
     }
 }

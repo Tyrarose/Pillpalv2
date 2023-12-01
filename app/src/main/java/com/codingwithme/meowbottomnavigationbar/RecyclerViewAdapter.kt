@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.NonNull
@@ -14,6 +15,7 @@ class RecyclerViewAdapter(private val recyclerViewList: ArrayList<RecyclerViewLi
 
     interface OnItemClickListener {
         fun onItemClick(position: Int)
+        fun onDeleteClick(position: Int)
     }
 
     inner class ViewHolder(itemView: View, private val listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
@@ -21,6 +23,16 @@ class RecyclerViewAdapter(private val recyclerViewList: ArrayList<RecyclerViewLi
         val reminderTitle: TextView = itemView.findViewById(R.id.reminderTitle)
         val reminderSubTitle: TextView = itemView.findViewById(R.id.reminderSubTitle)
         val reminderTime: TextView = itemView.findViewById(R.id.reminderTime)
+        val reminderItemDelete: View = itemView.findViewById(R.id.reminderItemDelete)
+        val reminderItemCard: FrameLayout = itemView.findViewById(R.id.reminderItemCard)
+        init {
+            reminderItemDelete.setOnClickListener {
+                listener.onDeleteClick(adapterPosition)
+            }
+            reminderItemCard.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
