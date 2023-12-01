@@ -44,6 +44,11 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private lateinit var timeList: ArrayList<TimeItem>
     private lateinit var timeAdapter: TimeAdapter
+    private var selectedNumber: String = ""
+    private var selectedDuration: String = ""
+    private var selectedDosage: String = ""
+    private var dosageAmount: String = ""
+
 
     private fun saveMedicineName(medicineName: String) {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
@@ -76,16 +81,13 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
         // Spinner One
         val spinnerOne: Spinner = view.findViewById(R.id.spinnerDurationOne)
-        val numbers = Array(31) { i -> if (i == 0) "No." else (i).toString() } // Add "No." as the first item
+        val numbers = Array(31) { i -> if (i == 0) "Frequency" else (i).toString() } // Add "No." as the first item
         val adapterOne = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, numbers)
         spinnerOne.adapter = adapterOne
 
         spinnerOne.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                val selectedItem = parent.getItemAtPosition(position).toString()
-                if (position != 0) {
-                    // Do something with the selected item
-                }
+                selectedNumber = parent.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -101,10 +103,7 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
         spinnerTwo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                val selectedItem = parent.getItemAtPosition(position).toString()
-                if (position != 0) {
-                    // Do something with the selected item
-                }
+                selectedDuration = parent.getItemAtPosition(position).toString()
             }
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // Do something when nothing is selected
@@ -113,16 +112,13 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
         // Spinner Three
         val spinnerThree: Spinner = view.findViewById(R.id.spinnerDosageOne)
-        val dosage = arrayOf("ml", "mg")
+        val dosage = arrayOf("mg", "ml")
         val adapterThree = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, dosage)
         spinnerThree.adapter = adapterThree
 
         spinnerThree.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                val selectedItem = parent.getItemAtPosition(position).toString()
-                if (position != 0) {
-                    // Do something with the selected item
-                }
+                selectedDosage = parent.getItemAtPosition(position).toString()
             }
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // Do something when nothing is selected
@@ -130,6 +126,7 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         }
 
         val editText: EditText = view.findViewById(R.id.numberDosage)
+        dosageAmount = editText.text.toString()
 
         val recyclerViewList = ArrayList<RecyclerViewList>()
         recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, requireContext(), this)
@@ -281,17 +278,40 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             val selectedTimes = timeList.map { it.time }
             saveSelectedTime(selectedTimes.joinToString(","))
 
+            // Get the dosage amount from the EditText
+            val editText: EditText = view.findViewById(R.id.numberDosage)
+            val dosageAmount = editText.text.toString()
+
+            // Save the user's selections from the spinners and the EditText
+            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return@setOnClickListener
+            with(sharedPref.edit()) {
+                putString("selected_number", selectedNumber)
+                putString("selected_duration", selectedDuration)
+                putString("selected_dosage", selectedDosage)
+                putString("dosage_amount", dosageAmount)
+                apply()
+            }
+
             // Create a new RecyclerViewList item for each selected time
             selectedTimes.forEach { selectedTime ->
-                val newReminder = RecyclerViewList(selectedImageResId, medicineNameText, listOf(selectedTime))
+                val reminderTitle = "$medicineNameText, $dosageAmount $selectedDosage"
+                val reminderSubTitle = "$selectedNumber $selectedDuration"
+                val newReminder = RecyclerViewList(
+                    selectedImageResId,
+                    reminderTitle,
+                    reminderSubTitle,
+                    listOf(selectedTime),
+                    selectedNumber,
+                    selectedDuration,
+                    selectedDosage,
+                    dosageAmount
+                )
                 (activity as MainActivity).addReminder(newReminder)
             }
 
             Toast.makeText(context, "Reminder Saved!", Toast.LENGTH_SHORT).show()
             requireActivity().supportFragmentManager.popBackStack()
         }
-
-
         return view
     }
     companion object {

@@ -13,13 +13,20 @@ import com.jakewharton.threetenabp.AndroidThreeTen
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MyViewModel
-    private val recyclerViewList = ArrayList<RecyclerViewList>()
+    private var recyclerViewList = ArrayList<RecyclerViewList>()
+    private lateinit var recyclerViewAdapter: RecyclerViewAdapter
+    private val listener = object : RecyclerViewAdapter.OnItemClickListener {
+        override fun onItemClick(position: Int) {
+            // Handle item click here
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MyViewModel::class.java)
+        recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, this, listener)
 
         /////////////// SET BUTTONS /////////////
         addFragment(DrugdrugFragment.newInstance())
@@ -60,9 +67,9 @@ class MainActivity : AppCompatActivity() {
         }
     } // ============================== END OF ONCREATE ============================================
 
-    fun addReminder(reminder: RecyclerViewList) {
-        recyclerViewList.add(reminder)
-        println("Current reminders: $recyclerViewList") // Add this line
+    fun addReminder(newReminder: RecyclerViewList) {
+        recyclerViewList.add(newReminder)
+        recyclerViewAdapter.notifyDataSetChanged() // Notify the adapter that the data set has changed
     }
 
     fun getReminderList(): ArrayList<RecyclerViewList> {
