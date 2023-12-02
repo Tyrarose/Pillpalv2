@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         override fun onItemClick(position: Int) {
             // Handle item click here
         }
+        override fun onDeleteClick(position: Int) {
+            TODO("Not yet implemented")
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
