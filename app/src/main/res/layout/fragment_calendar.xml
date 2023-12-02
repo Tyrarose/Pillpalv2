@@ -88,13 +88,14 @@
                 android:text="2023" />
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewDate"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="horizontal"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"/>
     </FrameLayout>
+
 
     <FrameLayout
         android:id="@+id/linearRowtotake"

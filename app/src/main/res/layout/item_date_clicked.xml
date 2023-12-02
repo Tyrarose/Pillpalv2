@@ -9,9 +9,9 @@
     <LinearLayout
         android:id="@+id/itemDateClicked"
         style="@style/groupStylebluegray_900cornerRadius"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.08"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="4dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
