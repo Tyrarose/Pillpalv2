@@ -69,6 +69,7 @@
     <string name="lbl_medicine_type">Medicine Type</string>
     <string name="lbl_vibration">Vibration</string>
     <string name="lbl_add_two_drugs">Add two drugs:</string>
+    <string name="lbl_added_two_drugs">Two drugs added</string>
     <string name="lbl_hi_ibs">Hi, Ibs</string>
     <string name="lbl_load_example">Load example</string>
     <string name="msg_track_your_drug">Track your drug interaction and medication reminder information</string>

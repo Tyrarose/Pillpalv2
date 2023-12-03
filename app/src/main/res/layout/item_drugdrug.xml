@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/drugdrugButton"
+        style="@style/groupStyleteal_100cornerRadius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/_10pxh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtItemDrug"
+            style="@style/txtPoppinsbold16_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_9pxv"
+            android:layout_marginStart="@dimen/_17pxh"
+            android:layout_marginTop="@dimen/_9pxv"
+            android:text="Drug X"
+            android:textColor="@color/White" />
+
+        <View
+            android:id="@+id/deleteButton"
+            android:layout_width="@dimen/_20pxh"
+            android:layout_height="@dimen/_20pxh"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/img_minuscircle"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

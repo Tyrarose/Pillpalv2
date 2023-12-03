@@ -3,22 +3,22 @@ package com.codingwithme.meowbottomnavigationbar
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
 
 class DrugdrugFragment : Fragment() {
-
-    private lateinit var listView: ListView
-    private lateinit var searchView: SearchView
     private lateinit var adapter: MyAdapter
     private lateinit var items: List<Item>
     private var buttonCount = 0
@@ -33,6 +33,7 @@ class DrugdrugFragment : Fragment() {
         val buttonContainer = view.findViewById<LinearLayout>(R.id.buttonContainer)
         val listView = view.findViewById<ListView>(R.id.listView)
         val searchView = view.findViewById<SearchView>(R.id.searchView)
+
 
 
         items = listOf(
@@ -51,8 +52,6 @@ class DrugdrugFragment : Fragment() {
 
         adapter = MyAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
-
-
         listView.visibility = View.GONE
 
 
@@ -112,9 +111,14 @@ class DrugdrugFragment : Fragment() {
 
         }
 
-        // Replace "your_file_path.csv" with the actual path to your CSV file
-        val filePath = "your_file_path.csv"
-//        readCsvFile(filePath)
+
+//        val logoPillpal = requireView().findViewById<Toolbar>(R.id.toolbarToolbar)
+//        logoPillpal.setNavigationOnClickListener  {
+//            buttonCount == 0
+//            clearButtons()
+//            threeButtons.visibility = View.VISIBLE
+//            interactionSample.visibility = View.GONE
+//        }
 
 
 
@@ -127,38 +131,31 @@ class DrugdrugFragment : Fragment() {
     private fun createButton(buttonText: String) {
         val txtAddtwodrugs = requireView().findViewById<TextView>(R.id.txtAddtwodrugs)
         val clearBtn = requireView().findViewById<Button>(R.id.btnClear)
+
+
         if (buttonCount < 2) {
             val newButton = Button(requireContext())
             newButton.text = buttonText
 
-            val newButtonDrawable: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.rectangle_bg_teal_100_radius_15)
-            newButton.background = newButtonDrawable
-            newButton.setTextAppearance(requireContext(), R.style.txtPoppinsbold16_1)
 
             val buttonContainer = requireView().findViewById<LinearLayout>(R.id.buttonContainer)
-            buttonContainer?.addView(newButton)
+            val itemView = LayoutInflater.from(context).inflate(R.layout.item_drugdrug, buttonContainer, false)
+            val txtItemDrug = itemView.findViewById<TextView>(R.id.txtItemDrug)
+            txtItemDrug.text = buttonText
+
+            buttonContainer.addView(itemView)
             createdButtons.add(newButton)
             buttonCount++
 
-            val params1 = newButton.layoutParams as ViewGroup.MarginLayoutParams
-            params1.bottomMargin = 20
-            params1.rightMargin = 50
-            params1.leftMargin = 50
-
-            newButton.layoutParams = params1
-
-            val iconDrawable: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.img_minuscircle)
-            newButton.setCompoundDrawablesWithIntrinsicBounds(iconDrawable, null, null, null)
-
-            newButton.setOnClickListener {
-                removeButton(newButton)
+            itemView.setOnClickListener {
+                removeButton(itemView)
             }
         }
 
         val checkInteractionsBtn = requireView().findViewById<Button>(R.id.btnCheckInteractions)
 
         if (buttonCount == 2) {
-            txtAddtwodrugs?.text = "Two drugs added"
+            txtAddtwodrugs?.setText(R.string.lbl_added_two_drugs)
             txtAddtwodrugs?.setTypeface(null, Typeface.BOLD)
 
             checkInteractionsBtn.isEnabled = true
@@ -182,14 +179,14 @@ class DrugdrugFragment : Fragment() {
     }
 
 
-    private fun removeButton(button: Button) {
+    private fun removeButton(view: View) {
         val checkInteractionsBtn = requireView().findViewById<Button>(R.id.btnCheckInteractions)
         val clearBtn = requireView().findViewById<Button>(R.id.btnClear)
         val buttonContainer = requireView().findViewById<LinearLayout>(R.id.buttonContainer)
         val txtAddtwodrugs = requireView().findViewById<TextView>(R.id.txtAddtwodrugs)
 
-        buttonContainer?.removeView(button)
-        createdButtons.remove(button)
+        buttonContainer?.removeView(view)
+        createdButtons.remove(view)
 
         txtAddtwodrugs?.setText(R.string.lbl_add_two_drugs)
         txtAddtwodrugs?.setTypeface(null, Typeface.NORMAL)
@@ -215,19 +212,23 @@ class DrugdrugFragment : Fragment() {
 
         checkInteractionsBtn?.isEnabled = false
         clearBtn?.isEnabled = true
+
     }
 
 
 
 
     private fun loadExampleButtons() {
+        val buttonContainer = requireView().findViewById<LinearLayout>(R.id.buttonContainer)
         val checkInteractionsBtn = requireView().findViewById<Button>(R.id.btnCheckInteractions)
         val clearBtn = requireView().findViewById<Button>(R.id.btnClear)
         val txtAddtwodrugs = requireView().findViewById<TextView>(R.id.txtAddtwodrugs)
 
+
+
         buttonCount = 2
         if (buttonCount == 2) {
-            txtAddtwodrugs?.text = "Two drugs added"
+            txtAddtwodrugs?.text = getString(R.string.lbl_added_two_drugs)
             txtAddtwodrugs?.setTypeface(null, Typeface.BOLD)
 
             val checkInteractionsDrawable: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.rectangle_bg_teal_100_radius_21_5)
@@ -236,7 +237,6 @@ class DrugdrugFragment : Fragment() {
         }
 
         clearButtons()
-        checkInteractions()
 
         for (i in 0 until 2) {
             if (i < items.size) {
@@ -257,10 +257,10 @@ class DrugdrugFragment : Fragment() {
         val buttonContainer = requireView().findViewById<LinearLayout>(R.id.buttonContainer)
         val checkInteractionsBtn = requireView().findViewById<Button>(R.id.btnCheckInteractions)
         val clearBtn = requireView().findViewById<Button>(R.id.btnClear)
-        for (button in createdButtons) {
-            buttonContainer?.removeView(button)
-        }
+
+        buttonContainer.removeAllViews()
         createdButtons.clear()
+
 
         val clearBtnDrawable: Drawable? = ContextCompat.getDrawable(requireContext(), R.drawable.rectangle_bg_bluegray_100_radius_21_5)
         clearBtn.background = clearBtnDrawable
@@ -290,7 +290,12 @@ class DrugdrugFragment : Fragment() {
 //        val resultsFragment = fragment_interaction_result()
         val createdButtons = createdButtons.toList()
         val interactionResultText = requireView().findViewById<TextView>(R.id.txtInteractionResult)
+
+
+        val threeButtonsGroup = requireView().findViewById<LinearLayout>(R.id.threeButtonsGroup)
+        threeButtonsGroup.visibility = View.GONE
         val drugdrugResults = requireView().findViewById<LinearLayout>(R.id.drugdrugResults)
+        drugdrugResults.visibility = View.VISIBLE
 
         if (createdButtons.size == 2 && interactionResultText != null) {
             val drug1 = createdButtons[0].text.toString()
@@ -311,22 +316,14 @@ class DrugdrugFragment : Fragment() {
             drugOne.text = drug1
             drugTwo.text = drug2
             drugdrugResults.visibility = View.VISIBLE
-//            interactionResultText.visibility = View.VISIBLE
         }
     }
 
+
     fun interactionResult(drug1: String, drug2: String){
-
-//        id: drugdrugResults
-
-
-
-
-
-
-
-
     }
+
+
 
     // Replace this with your actual logic for checking drug interactions
     private fun checkDrugInteractions(drug1: String, drug2: String): Boolean {
