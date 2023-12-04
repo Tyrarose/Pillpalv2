@@ -4,16 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Bluelight"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/frameDruginteractio"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/Bluelight">
 
-        <LinearLayout
-            android:id="@+id/linearColumnlanguage"
+        <androidx.appcompat.widget.Toolbar android:gravity="start"
+            android:id="@+id/toolbarToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top|start|center"
@@ -22,92 +18,96 @@
             android:layout_marginEnd="22.89dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
+            <FrameLayout android:id="@+id/__link_drug_interaction_empty__pillpal_logo"
+                android:layout_height="30dp"
+                android:layout_width="56dp"
+                android:background="@drawable/pillpal_logo">
+            </FrameLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-            <androidx.appcompat.widget.Toolbar android:gravity="start"
-                android:id="@+id/toolbarToolbar"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-                <FrameLayout android:id="@+id/__link_drug_interaction_empty__pillpal_logo"
-                    android:layout_height="30dp"
-                    android:layout_width="56dp"
-                    android:background="@drawable/pillpal_logo">
-                </FrameLayout>
-            </androidx.appcompat.widget.Toolbar>
-
-            <TextView
-                android:id="@+id/txtPrice"
-                android:textSize="12dp"
-                android:fontFamily="@font/robotoromanbold"
-                android:textColor="@color/Black"
+        <ScrollView
+            android:id="@+id/linearColumnlanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginStart="48.89dp"
+            android:layout_marginTop="10.43dp"
+            android:layout_marginEnd="42.89dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbarToolbar"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/drugdrugResults"
+                android:visibility="visible"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginStart="22.89dp"
-                android:layout_marginTop="36.03dp"
-                android:layout_marginEnd="22.89dp"
-                android:ellipsize="end"
-                android:lineSpacingExtra="3.43dp"
-                android:singleLine="true"
-                android:text="@string/msg_add_drug_to_che" />
-
-
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:defaultQueryHint="Tylenol"
-                app:iconifiedByDefault="false"
-                android:layout_margin="8dp"/>
-
-
-            <FrameLayout
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/imageArrowleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10pxh"
+                    android:src="@drawable/img_arrowleft_blue"
+                    android:background="@android:color/transparent"
+                    >
+                </ImageButton>
                 <LinearLayout
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
+                        android:gravity="center"
                         style="@style/groupStylered_300cornerRadius"
-                        android:layout_height="@dimen/_70pxv"
-                        android:layout_width="@dimen/_280pxh">
-                        <TextView
-                            android:background="@drawable/rectangle_bg_white_a700_border_bluegray_800_19_radius_tl_15_bl_15"
-                            android:id="@+id/drugOne"
-                            android:layout_margin="2dp"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            style="@style/txtPoppinsbold15_1v2"
-                            android:layout_width="@dimen/_155pxv"
-                            android:lineSpacingExtra="@dimen/_2pxh"
-                            android:text="@string/lbl_warfarin" />
-                        <ImageView
-                            android:id="@+id/compareImage"
-                            android:layout_width="@dimen/_16pxh"
-                            android:layout_height="@dimen/_19pxh"
-                            android:layout_gravity="center"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_minimize"
-                            tools:ignore="ContentDescription"
-                            tools:src="@drawable/img_minimize" />
+                        android:background="@drawable/rectangle_bg_white_border_red_radius_15"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="30dp">
+                            <TextView
+                                android:id="@+id/drugOne"
+                                android:layout_margin="2dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                style="@style/txtPoppinsbold15_1v2"
+                                android:paddingRight="20dp"
+                                android:paddingLeft="20dp"
+                                android:paddingBottom="20dp"
+                                android:paddingTop="20dp"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:lineSpacingExtra="@dimen/_2pxh"
+                                android:text="@string/lbl_warfarin" />
+                            <ImageView
+                                android:id="@+id/compareImage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_19pxh"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_minimize"
+                                tools:ignore="ContentDescription"
+                                tools:src="@drawable/img_minimize" />
 
-                        <TextView
-                            android:id="@+id/drugTwo"
-                            android:layout_width="@dimen/_155pxv"
-                            android:layout_height="match_parent"
-                            android:layout_margin="2dp"
-                            style="@style/txtPoppinsbold15_1v2"
-                            android:background="@drawable/rectangle_bg_white_a700_border_bluegray_800_19_radius_tr_15_br_15"
-                            android:gravity="center"
-                            android:lineSpacingExtra="@dimen/_2pxh"
-                            android:text="@string/msg_acetaminophen" />
+                            <TextView
+                                android:id="@+id/drugTwo"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:paddingRight="20dp"
+                                android:paddingLeft="20dp"
+                                android:paddingBottom="20dp"
+                                android:paddingTop="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="2dp"
+                                style="@style/txtPoppinsbold15_1v2"
+                                android:gravity="center"
+                                android:lineSpacingExtra="@dimen/_2pxh"
+                                android:text="@string/lbl_warfarin" />
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
                         android:layout_gravity="center">
                         <TextView
                             android:id="@+id/txtSEVERITYOne"
@@ -131,11 +131,9 @@
                             android:src="@drawable/img_question_white_a700" />
                     </LinearLayout>
                     <androidx.appcompat.widget.AppCompatButton
-                        android:ellipsize="end" android:gravity="center"
-                        android:id="@+id/btnModerateOne"
+                        android:ellipsize="end"
+                        android:id="@+id/btnSeverity"
                         android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/_84pxh"
-                        android:layout_marginStart="@dimen/_84pxh"
                         android:layout_height="@dimen/_30pxv"
                         android:layout_width="@dimen/_115pxh"
                         android:lineSpacingExtra="@dimen/_6pxh"
@@ -146,59 +144,71 @@
                         android:singleLine="true"
                         android:text="@string/lbl_moderate"
                         android:textAllCaps="false"
+                        android:layout_marginBottom="20dp"
                         style="@style/btnSolidRounded_5" tools:text="@string/lbl_moderate"/>
                 </LinearLayout>
-            </FrameLayout>
 
-            <LinearLayout android:id="@+id/linearColumnpriceSeven"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtPriceSeven"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_55pxh"
-                    android:layout_marginStart="@dimen/_55pxh"
-                    android:layout_marginTop="@dimen/_4pxv"
-                    android:layout_width="wrap_content"
-                    android:lineSpacingExtra="@dimen/_3pxh"
-                    android:singleLine="true"
-                    style="@style/txtRobotoromanbold15_1"
-                    android:text="@string/lbl_description"/>
-                <TextView android:gravity="center_horizontal"
-                    android:id="@+id/txtDescriptionSix"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_1pxh"
-                    android:layout_marginTop="@dimen/_5pxv"
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_3pxh"
-                    style="@style/txtInterregular12"
-                    android:text="@string/msg_lorem_ipsum_dol"/>
-                <TextView android:ellipsize="end"
-                    android:gravity="center_horizontal"
-                    android:id="@+id/txtPriceEight"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_52pxh"
-                    android:layout_marginStart="@dimen/_55pxh"
-                    android:layout_marginTop="@dimen/_23pxv"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_3pxh"
-                    android:singleLine="true"
-                    style="@style/txtRobotoromanbold15_1"
-                    android:text="@string/msg_extended_descri"/>
-                <TextView android:gravity="center_horizontal"
-                    android:id="@+id/txtDescriptionSeven"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_1pxh"
-                    android:layout_marginTop="@dimen/_5pxv"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_3pxh"
-                    style="@style/txtInterregular12"
-                    android:text="@string/msg_lorem_ipsum_dol2"/>
+                    android:layout_height="match_parent"
+                    android:overScrollMode="always"
+                    android:scrollbars="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/linearColumnpriceSeven"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtPriceSeven"
+                            style="@style/txtRobotoromanbold15_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_55pxh"
+                            android:layout_marginEnd="@dimen/_55pxh"
+                            android:ellipsize="end"
+                            android:lineSpacingExtra="@dimen/_3pxh"
+                            android:singleLine="true"
+                            android:text="@string/lbl_description" />
+
+                        <TextView
+                            android:id="@+id/txtDescription"
+                            style="@style/txtInterregular12"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_marginEnd="@dimen/_1pxh"
+                            android:gravity="center_horizontal"
+                            android:lineSpacingExtra="@dimen/_3pxh"
+                            android:text="@string/msg_lorem_ipsum_dol" />
+                        <TextView
+                            android:id="@+id/txtExtDescription"
+                            style="@style/txtRobotoromanbold15_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_55pxh"
+                            android:layout_marginTop="@dimen/_23pxv"
+                            android:layout_marginEnd="@dimen/_52pxh"
+                            android:ellipsize="end"
+                            android:gravity="center_horizontal"
+                            android:lineSpacingExtra="@dimen/_3pxh"
+                            android:singleLine="true"
+                            android:text="@string/msg_extended_descri" />
+
+                        <TextView
+                            android:id="@+id/txtDescriptionSeven"
+                            style="@style/txtInterregular12"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_1pxh"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:gravity="center_horizontal"
+                            android:lineSpacingExtra="@dimen/_3pxh"
+                            android:text="@string/msg_lorem_ipsum_dol2" />
+                    </LinearLayout>
+                </ScrollView>
             </LinearLayout>
-
-
-        </LinearLayout>
-    </FrameLayout>
+        </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
