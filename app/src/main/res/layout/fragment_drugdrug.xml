@@ -22,7 +22,8 @@
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar android:gravity="start"
+            <Toolbar
+                android:gravity="start"
                 android:id="@+id/toolbarToolbar"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
@@ -31,49 +32,7 @@
                     android:layout_width="56dp"
                     android:background="@drawable/pillpal_logo">
                 </FrameLayout>
-            </androidx.appcompat.widget.Toolbar>
-
-            <TextView
-                android:id="@+id/txtPrice"
-                android:textSize="12dp"
-                android:fontFamily="@font/robotoromanbold"
-                android:textColor="@color/Black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="22.89dp"
-                android:layout_marginTop="36.03dp"
-                android:layout_marginEnd="22.89dp"
-                android:ellipsize="end"
-                android:lineSpacingExtra="3.43dp"
-                android:singleLine="true"
-                android:text="@string/msg_add_drug_to_che" />
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:defaultQueryHint="Tylenol"
-                app:iconifiedByDefault="false"
-                android:layout_margin="8dp"/>
-            <ListView
-                android:visibility="gone"
-                android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/searchView"
-                android:layout_marginTop="8dp"/>
-
-            <LinearLayout
-                android:id="@+id/buttonContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
-
-
-
-
-
+            </Toolbar>
 
 
 
@@ -108,6 +67,35 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/robotoromanbold"
+                    android:textColor="@color/Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="22.89dp"
+                    android:layout_marginTop="36.03dp"
+                    android:layout_marginEnd="22.89dp"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="3.43dp"
+                    android:singleLine="true"
+                    android:text="@string/msg_add_drug_to_che" />
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:defaultQueryHint="Tylenol"
+                    app:iconifiedByDefault="false"
+                    android:layout_margin="8dp"/>
+                <ListView
+                    android:visibility="gone"
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/searchView"
+                    android:layout_marginTop="8dp"/>
             <TextView
                 android:id="@+id/txtAddtwodrugs"
                 android:layout_width="match_parent"
@@ -124,12 +112,18 @@
                 android:textSize="12sp"
                 android:text="@string/lbl_add_two_drugs" />
 
+                <LinearLayout
+                    android:id="@+id/buttonContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10pxh"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+                </LinearLayout>
 
-
-            <!--                style="@style/btnSolidRounded"-->
             <Button
-
-                style="@style/btnSolidRounded"
+                style="@style/btnSolidRounded_1"
                 android:id="@+id/btnCheckInteractions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -176,7 +170,6 @@
                     android:textAllCaps="false"/>
 
 
-<!--                style="@style/btnSolidRoundedOutline"-->
                 <Button
                     style="@style/btnSolidRoundedOutline"
                     android:id="@+id/btnLoadExample"
@@ -192,18 +185,16 @@
                     android:text="@string/lbl_load_example" />
             </LinearLayout>
 
+
             </LinearLayout>
 
 
             <TextView
                 android:id="@+id/txtInteractionResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:text=""
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:layout_centerHorizontal="true"/>
+                android:textColor="@android:color/black"/>
 
 
 
@@ -213,7 +204,7 @@
             <LinearLayout
                 android:id="@+id/drugdrugResults"
                 android:visibility="gone"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -375,15 +366,17 @@
 
 
 
-            <LinearLayout android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/warningLayout"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/linearWarning"
                 style="@style/groupStylecornerRadius_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_marginStart="22.89dp"
                 android:layout_marginEnd="22.89dp"
                 android:gravity="end"
@@ -415,18 +408,18 @@
                     android:text="@string/msg_warning_if_no" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageBbcapcule"
-                android:layout_width="@dimen/_29pxh"
-                android:layout_height="@dimen/_80pxh"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_126pxh"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="@dimen/_126pxh"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_bbcapcule_white_a700"
-                tools:ignore="ContentDescription"
-                tools:src="@drawable/img_bbcapcule_white_a700" />
+                <ImageView
+                    android:id="@+id/imageBbcapcule"
+                    android:layout_width="24dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_126pxh"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/_126pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_bbcapcule_white_a700"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_bbcapcule_white_a700" />
             </LinearLayout>
 
 
