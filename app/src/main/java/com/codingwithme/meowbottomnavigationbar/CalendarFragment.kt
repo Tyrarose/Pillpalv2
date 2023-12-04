@@ -13,8 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import java.time.LocalDate
-
-
+//hello
 class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
@@ -86,7 +85,6 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         return view
     }
 
-
     override fun onResume() {
         super.onResume()
         recyclerViewList = (activity as MainActivity).getReminderList() // Get the updated list
@@ -100,7 +98,6 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             txtNothingHere.visibility = View.GONE
         }
     }
-
 
     override fun onItemClick(position: Int) {
         // Replace the fragment
