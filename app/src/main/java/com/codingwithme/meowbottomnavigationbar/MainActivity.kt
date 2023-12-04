@@ -79,6 +79,15 @@ class MainActivity : AppCompatActivity() {
         return recyclerViewList
     }
 
+    fun showReminderFragment(item: RecyclerViewList?) {
+        val reminderFragment = ReminderFragment.newInstance(item)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, reminderFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+
     private fun replaceFragment(fragment:Fragment){
         val fragmentTransition = supportFragmentManager.beginTransaction()
         fragmentTransition.replace(R.id.fragmentContainer,fragment).addToBackStack(Fragment::class.java.simpleName).commit()

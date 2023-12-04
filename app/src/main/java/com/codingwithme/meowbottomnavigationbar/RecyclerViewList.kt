@@ -1,12 +1,16 @@
 package com.codingwithme.meowbottomnavigationbar
 
+import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
+
+@Parcelize
 data class RecyclerViewList(
-    var image: Int,
-    var text: String,
-    var subTitle: String, // Add this
-    val times: List<String>, // Change 'time' to 'times' and make it a list
-    val number: String, // Add this
-    val duration: String, // Add this
-    val dosage: String, // Add this
-    val dosageAmount: String // Add this
-)
+    val image: Int,
+    val text: String,
+    val subTitle: String,
+    val times: List<String>,
+    val selectedNumber: String,
+    val selectedDuration: String,
+    val selectedDosage: String,
+    val dosageAmount: String
+) : Parcelable

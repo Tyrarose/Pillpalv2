@@ -30,7 +30,8 @@ class RecyclerViewAdapter(private val recyclerViewList: ArrayList<RecyclerViewLi
                 listener.onDeleteClick(adapterPosition)
             }
             reminderItemCard.setOnClickListener {
-                listener.onItemClick(adapterPosition)
+                val item = recyclerViewList[adapterPosition]
+                (context as MainActivity).showReminderFragment(item)
             }
         }
     }
