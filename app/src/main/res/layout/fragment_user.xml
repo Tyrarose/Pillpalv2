@@ -70,15 +70,15 @@
                 android:layout_weight="0.62"
                 android:layout_width="0dp" android:orientation="vertical">
                 <TextView android:ellipsize="end"
-                    android:id="@+id/txtYung"
+                    android:id="@+id/lbl_userFName"
                     style="@style/txtPoppinsbold40_1"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_10pxh"
                     android:layout_width="match_parent"
                     android:singleLine="true"
-                    android:text="@string/lbl_yung"/>
+                    android:text="@string/lbl_userFName"/>
                 <TextView android:ellipsize="end"
-                    android:id="@+id/txtFilly"
+                    android:id="@+id/lbl_userLName"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_1pxv"
                     android:layout_marginEnd="@dimen/_10pxh"
@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:singleLine="true"
                     style="@style/txtRobotoromanlight40"
-                    android:text="@string/lbl_filly"/>
+                    android:text="@string/lbl_userLName"/>
             </LinearLayout>
             <View android:background="@color/black_900"
                 android:id="@+id/lineVectorNine"

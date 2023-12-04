@@ -19,8 +19,9 @@
     <string name="lbl_age">Age</string>
     <string name="lbl_28">28</string>
     <string name="msg_check_interacti">Check Interactions</string>
+    <string name="msg_check_new_pair">Check New Pair</string>
     <string name="lbl_moderate">MODERATE</string>
-    <string name="lbl_filly">Filly</string>
+    <string name="lbl_userLName">Filly</string>
     <string name="lbl_description">DESCRIPTION</string>
     <string name="msg_warning_if_no">WARNING: If no interactions are found between two drugs, it does not necessarily mean that no interactions exist. Always CONSULT with a HEALTHCARE PROFESSIONAL.</string>
     <string name="msg_community_guide">Community Guidelines</string>
@@ -56,7 +57,7 @@
     <string name="lbl_09_00_am">09:00 AM</string>
     <string name="lbl_consult">CONSULT</string>
     <string name="lbl_duration">Duration</string>
-    <string name="lbl_yung">Yung</string>
+    <string name="lbl_userFName">Ibs</string>
     <string name="msg_extended_descri">EXTENDED DESCRIPTION</string>
     <string name="msg_medication_remi">Medication Reminder</string>
     <string name="lbl_probiotics">Probiotics</string>
