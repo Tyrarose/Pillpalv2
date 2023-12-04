@@ -17,8 +17,8 @@ class DateAdapter(private val dates: List<DateItem>) : RecyclerView.Adapter<Recy
 
     override fun getItemViewType(position: Int): Int {
         return when {
-            dates[position].isSelected -> TYPE_SELECTED
             dates[position].isToday -> TYPE_TODAY
+            dates[position].isSelected -> TYPE_SELECTED
             else -> TYPE_UNSELECTED
         }
     }
@@ -63,9 +63,10 @@ class DateAdapter(private val dates: List<DateItem>) : RecyclerView.Adapter<Recy
                 notifyItemChanged(pos)
                 selectedPosition = -1
             }
+        } else if (holder is TodayViewHolder) {
+            holder.bind(dateItem)
         }
     }
-
 
     override fun getItemCount() = dates.size
 

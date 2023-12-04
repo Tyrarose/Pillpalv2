@@ -7,7 +7,7 @@ import java.util.Locale
 
 data class DateItem(val date: String, val day: String, var isSelected: Boolean = false, var isToday: Boolean = false)
 
-fun generateDatesForMonth(): List<DateItem> {
+fun generateDatesForMonth(): Pair<List<DateItem>, Int> {
     val dates = mutableListOf<DateItem>()
 
     // Get the current date
@@ -31,7 +31,12 @@ fun generateDatesForMonth(): List<DateItem> {
         dates.add(dateItem)
         date = date.plusDays(1)
     }
-    return dates
+
+    val todayIndex = dates.indexOfFirst { it.isToday }
+    val todayPageIndex = todayIndex / 7 // assuming that each page contains 7 days
+
+    return Pair(dates, todayPageIndex)
 }
+
 
 
