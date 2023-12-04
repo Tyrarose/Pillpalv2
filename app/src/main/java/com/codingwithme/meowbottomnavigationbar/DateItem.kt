@@ -32,6 +32,14 @@ fun generateDatesForMonth(): Pair<List<DateItem>, Int> {
         date = date.plusDays(1)
     }
 
+    // Add dates for the next month until the end of the week
+    while (date.dayOfWeek != DayOfWeek.SUNDAY) {
+        val dayOfWeek = date.dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.getDefault()) // Get the day of the week as a three-letter string
+        val dateItem = DateItem(date.dayOfMonth.toString(), dayOfWeek)
+        dates.add(dateItem)
+        date = date.plusDays(1)
+    }
+
     val todayIndex = dates.indexOfFirst { it.isToday }
     val todayPageIndex = todayIndex / 7 // assuming that each page contains 7 days
 
