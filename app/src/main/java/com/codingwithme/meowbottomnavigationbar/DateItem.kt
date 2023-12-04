@@ -7,7 +7,7 @@ import java.util.Locale
 
 data class DateItem(val date: String, val day: String, var isSelected: Boolean = false, var isToday: Boolean = false)
 
-fun generateDatesForMonth(): List<DateItem> {
+fun generateDatesForMonth(): Pair<List<DateItem>, Int> {
     val dates = mutableListOf<DateItem>()
 
     // Get the current date
@@ -31,7 +31,20 @@ fun generateDatesForMonth(): List<DateItem> {
         dates.add(dateItem)
         date = date.plusDays(1)
     }
-    return dates
+
+    // Add dates for the next month until the end of the week
+    while (date.dayOfWeek != DayOfWeek.SUNDAY) {
+        val dayOfWeek = date.dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.getDefault()) // Get the day of the week as a three-letter string
+        val dateItem = DateItem(date.dayOfMonth.toString(), dayOfWeek)
+        dates.add(dateItem)
+        date = date.plusDays(1)
+    }
+
+    val todayIndex = dates.indexOfFirst { it.isToday }
+    val todayPageIndex = todayIndex / 7 // assuming that each page contains 7 days
+
+    return Pair(dates, todayPageIndex)
 }
+
 
 

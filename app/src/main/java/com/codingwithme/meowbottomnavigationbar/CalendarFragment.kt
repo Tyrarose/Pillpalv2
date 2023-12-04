@@ -13,8 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import java.time.LocalDate
-
-
+//hello
 class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
@@ -38,7 +37,7 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         var viewPager: ViewPager2 = view.findViewById(R.id.viewPager)
         viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // Set the orientation to horizontal
         var calendarMY: LinearLayout? = view.findViewById(R.id.calendarMY)
-        val dates = generateDatesForMonth()
+        val (dates, todayPageIndex) = generateDatesForMonth()
         val chunks = dates.chunked(7) // Split the dates into chunks of 7
         val pagerAdapter = ViewPagerAdapter(chunks)
         var calendarMonth: TextView? = view.findViewById(R.id.calendarMonth)
@@ -52,6 +51,7 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
         calendarYear?.text = currentDate.year.toString()
 
         viewPager.adapter = pagerAdapter
+        viewPager.setCurrentItem(todayPageIndex, false)
 
         var isTabularView = false
 
@@ -98,7 +98,6 @@ class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
             txtNothingHere.visibility = View.GONE
         }
     }
-
 
     override fun onItemClick(position: Int) {
         // Replace the fragment
