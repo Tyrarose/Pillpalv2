@@ -80,6 +80,7 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_reminder, container, false)
         val btnSave = view.findViewById<Button>(R.id.btnSave)
+        val itemToEdit = arguments?.getParcelable<RecyclerViewList>("item")
 
         // Spinner One
         val spinnerOne: Spinner = view.findViewById(R.id.spinnerDurationOne)
@@ -318,8 +319,13 @@ class ReminderFragment : Fragment(), RecyclerViewAdapter.OnItemClickListener {
     }
     companion object {
         @JvmStatic
-        fun newInstance() = ReminderFragment()
+        fun newInstance(item: RecyclerViewList? = null) = ReminderFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable("item", item)
+            }
+        }
     }
+
     override fun onItemClick(position: Int) {
         // Get the item to be edited
         val itemToEdit = recyclerViewList[position]

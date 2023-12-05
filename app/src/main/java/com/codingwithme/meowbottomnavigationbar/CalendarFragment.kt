@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import java.time.LocalDate
-//hello
+
 class CalendarFragment  : Fragment(), RecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
