@@ -57,9 +57,10 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
+                        android:id="@+id/highlight"
                         android:gravity="center"
                         style="@style/groupStylered_300cornerRadius"
-                        android:background="@drawable/rectangle_bg_white_border_red_radius_15"
+                        android:background="@drawable/rectangle_bg_white_border_black_radius_15"
                         android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
@@ -145,7 +146,7 @@
                         android:text="@string/lbl_moderate"
                         android:textAllCaps="false"
                         android:layout_marginBottom="20dp"
-                        style="@style/btnSolidRounded_5" tools:text="@string/lbl_moderate"/>
+                        style="@style/btnSolidRounded_5_black" tools:text="@string/lbl_moderate"/>
                 </LinearLayout>
 
                 <ScrollView
@@ -184,21 +185,19 @@
                             android:lineSpacingExtra="@dimen/_3pxh"
                             android:text="@string/msg_lorem_ipsum_dol" />
                         <TextView
-                            android:id="@+id/txtExtDescription"
+                            android:id="@+id/title"
                             style="@style/txtRobotoromanbold15_1"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_55pxh"
                             android:layout_marginTop="@dimen/_23pxv"
-                            android:layout_marginEnd="@dimen/_52pxh"
                             android:ellipsize="end"
-                            android:gravity="center_horizontal"
+                            android:layout_gravity="center"
                             android:lineSpacingExtra="@dimen/_3pxh"
                             android:singleLine="true"
                             android:text="@string/msg_extended_descri" />
 
                         <TextView
-                            android:id="@+id/txtDescriptionSeven"
+                            android:id="@+id/txtExtDescription"
                             style="@style/txtInterregular12"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

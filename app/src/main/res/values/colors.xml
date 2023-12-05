@@ -31,7 +31,12 @@
     <color name="gray_800">#3f3f3f</color>
     <color name="gray_900">#1d1d1d</color>
     <color name="bluegray_100">#d9d9d9</color>
-    <color name="red_300">#ea6771</color>
+
+    <color name="moderate">#EA6771</color>
+    <color name="unknown">#6DD66E</color>
+    <color name="minor">#E6944B</color>
+    <color name="major">#741D5C</color>
+
     <color name="teal_50">#d9f1f4</color>
     <color name="black_900_3f">#3f000000</color>
     <color name="green_50">#e2efe3</color>

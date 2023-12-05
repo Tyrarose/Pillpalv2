@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import com.jakewharton.threetenabp.AndroidThreeTen
 
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MyViewModel
     private var recyclerViewList = ArrayList<RecyclerViewList>()
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
+
+
+
     private val listener = object : RecyclerViewAdapter.OnItemClickListener {
         override fun onItemClick(position: Int) {
             // Handle item click here
@@ -27,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         viewModel = ViewModelProvider(this).get(MyViewModel::class.java)
         recyclerViewAdapter = RecyclerViewAdapter(recyclerViewList, this, listener)
