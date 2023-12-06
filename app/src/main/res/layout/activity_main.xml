@@ -25,11 +25,11 @@
         android:layout_alignParentBottom="true"
         app:mbn_backgroundBottomColor="@color/White"
         app:mbn_countBackgroundColor="@color/White"
-        app:mbn_countTextColor="@color/Black"
+        app:mbn_countTextColor="@color/White"
         app:mbn_defaultIconColor="@color/Black"
-        app:mbn_rippleColor="@color/Graylight"
+        app:mbn_rippleColor="@color/White"
         app:mbn_selectedIconColor="@color/Black"
-        app:mbn_shadowColor="@color/Graylight"/>
+        app:mbn_shadowColor="@color/White"/>
 
 
 </RelativeLayout>

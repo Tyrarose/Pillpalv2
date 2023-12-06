@@ -8,22 +8,35 @@
     android:orientation="vertical">
 
 
-        <androidx.appcompat.widget.Toolbar android:gravity="start"
-            android:id="@+id/toolbarToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|start|center"
-            android:layout_marginStart="28.89dp"
-            android:layout_marginTop="10.43dp"
-            android:layout_marginEnd="22.89dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
-            <FrameLayout android:id="@+id/__link_drug_interaction_empty__pillpal_logo"
-                android:layout_height="30dp"
-                android:layout_width="56dp"
-                android:background="@drawable/pillpal_logo">
-            </FrameLayout>
-        </androidx.appcompat.widget.Toolbar>
+    <Toolbar
+        android:gravity="start"
+        android:id="@+id/toolbarToolbar"
+        android:layout_marginStart="28.89dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <FrameLayout android:id="@+id/__link_drug_interaction_empty__pillpal_logo"
+            android:layout_height="30dp"
+            android:layout_width="56dp"
+            android:background="@drawable/pillpal_logo">
+        </FrameLayout>
+    </Toolbar>
+
+<!--        <androidx.appcompat.widget.Toolbar android:gravity="start"-->
+<!--            android:id="@+id/toolbarToolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="top|start|center"-->
+<!--            android:layout_marginStart="28.89dp"-->
+<!--            android:layout_marginTop="10.43dp"-->
+<!--            android:layout_marginEnd="22.89dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:orientation="vertical">-->
+<!--            <FrameLayout android:id="@+id/__link_drug_interaction_empty__pillpal_logo"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_width="56dp"-->
+<!--                android:background="@drawable/pillpal_logo">-->
+<!--            </FrameLayout>-->
+<!--        </androidx.appcompat.widget.Toolbar>-->
 
         <ScrollView
             android:id="@+id/linearColumnlanguage"
@@ -53,7 +66,7 @@
                 </ImageButton>
                 <LinearLayout
                     android:layout_gravity="center"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
@@ -63,46 +76,34 @@
                         android:background="@drawable/rectangle_bg_white_border_black_radius_15"
                         android:layout_gravity="center"
                         android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_marginBottom="30dp">
-                            <TextView
-                                android:id="@+id/drugOne"
-                                android:layout_margin="2dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                style="@style/txtPoppinsbold15_1v2"
-                                android:paddingRight="20dp"
-                                android:paddingLeft="20dp"
-                                android:paddingBottom="20dp"
-                                android:paddingTop="20dp"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:lineSpacingExtra="@dimen/_2pxh"
-                                android:text="@string/lbl_warfarin" />
-                            <ImageView
-                                android:id="@+id/compareImage"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/_19pxh"
-                                android:layout_gravity="center"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/img_minimize"
-                                tools:ignore="ContentDescription"
-                                tools:src="@drawable/img_minimize" />
-
-                            <TextView
-                                android:id="@+id/drugTwo"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:paddingRight="20dp"
-                                android:paddingLeft="20dp"
-                                android:paddingBottom="20dp"
-                                android:paddingTop="20dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="2dp"
-                                style="@style/txtPoppinsbold15_1v2"
-                                android:gravity="center"
-                                android:lineSpacingExtra="@dimen/_2pxh"
-                                android:text="@string/lbl_warfarin" />
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="30dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/drugOne"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/txtPoppinsbold15_1v2"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:text="@string/lbl_warfarin" />
+                        <ImageView
+                            android:id="@+id/compareImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_19pxh"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_minimize"
+                            tools:ignore="ContentDescription"
+                            tools:src="@drawable/img_minimize" />
+                        <TextView
+                            android:id="@+id/drugTwo"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/txtPoppinsbold15_1v2"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:text="@string/lbl_warfarin" />
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"

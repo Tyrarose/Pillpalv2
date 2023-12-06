@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:layout_marginStart="28.89dp"
-        android:layout_marginTop="10.43dp"
         android:layout_marginEnd="22.89dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar android:gravity="start"
+        <Toolbar
+            android:gravity="start"
             android:id="@+id/toolbarToolbar"
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
@@ -29,7 +29,7 @@
                 android:layout_width="56dp"
                 android:background="@drawable/pillpal_logo">
             </FrameLayout>
-        </androidx.appcompat.widget.Toolbar>
+        </Toolbar>
 
         <FrameLayout android:id="@+id/frameProfilepicture"
             android:layout_gravity="center_horizontal"
